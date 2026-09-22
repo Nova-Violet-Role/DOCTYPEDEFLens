@@ -1,0 +1,54 @@
+[
+ {
+  "id": "dtd-resolve-05",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R05_cond.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % cond SYSTEM \"parts/cond.dtd\">\n%cond;\n]>\n\n--- parts/cond.dtd ---\n<![ INCLUDE [\n<!ELEMENT inc_el (#PCDATA)>\n]]>\n<![ IGNORE [\n<!ELEMENT ign_el (#PCDATA)>\n]]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "cond",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "cond"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-06",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R06_deep.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % d SYSTEM \"parts/d.dtd\">\n<!ENTITY % e SYSTEM \"parts/e.dtd\">\n%d;\n%e;\n]>\n\n--- parts/d.dtd ---\n<!ELEMENT delta (#PCDATA)>\n<!-- delta renders %epart; here -->\n\n--- parts/e.dtd ---\n<!ELEMENT epsilon (#PCDATA)>\n<!ENTITY % epart \"EPART-VALUE\">\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "d,e",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "d,e"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

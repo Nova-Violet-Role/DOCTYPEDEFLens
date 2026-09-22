@@ -1,0 +1,106 @@
+[
+ {
+  "id": "dtd-rev2-amsb",
+  "prompt": "Which exhibits declare an include of iso-amsb.ent? First line must be exactly `VERDICT: <letters>` naming the true exhibits (e.g. VERDICT: A).\n\nExhibit A (from dbcentx.mod):\n<!ENTITY % ISOamsb PUBLIC\n\"ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN\"\nExhibit B (from dbcentx.mod):\n<!ENTITY % ISOamsa PUBLIC\n\"ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN\"\nExhibit C (from xhtml1-strict.dtd):\n<!ENTITY % HTMLlat1 PUBLIC\n   \"-//W3C//ENTITIES Latin 1 for XHTML//EN\"\n   \"xhtml-lat1.ent\"\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-rev2",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: A",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "ISOamsb",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "A"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-rev2-swprefw",
+  "prompt": "Under the default, what does the prefw switch expand to? First line must be exactly `VERDICT: NOTHING`.\n\n<!ENTITY % svg-prefw-redecl.module \"IGNORE\" >\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-rev2",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: NOTHING",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "IGNORE",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "NOTHING"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-rev2-poem",
+  "prompt": "Which exhibits declare an include of poem.dtd? First line must be exactly `VERDICT: <letters>` naming the true exhibits (e.g. VERDICT: A).\n\nExhibit A (from dtbook-2005-1):\n<!ENTITY % poemModule SYSTEM \"poem.dtd\"\nExhibit B (from dtbook-2005-2):\n<!ENTITY % poemModule SYSTEM \"poem.dtd\"\nExhibit C (from oebpkg12.dtd):\n<!ENTITY % OEBEntities\n     PUBLIC \"+//ISBN 0-9673008-1-9//DTD OEB 1.2 Entities//EN\"\n     \"http://openebook.org/dtds/oeb-1.2/oeb12.ent\"\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-rev2",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: AB",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "poemModule",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "AB"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-rev2-swtech",
+  "prompt": "If %ISOtech.module; is IGNORE, which declaration vanishes? First line must be exactly `VERDICT: VANISHES`.\n\n<![ %ISOtech.module; [\n<!ENTITY % ISOtech PUBLIC\n\"ISO 8879:1986//ENTITIES General Technical//EN\">\n<!--end of ISOtech.module-->]]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-rev2",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: VANISHES",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "General Technical",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "VANISHES"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

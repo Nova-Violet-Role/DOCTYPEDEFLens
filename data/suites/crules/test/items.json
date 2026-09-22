@@ -1,0 +1,64 @@
+[
+ {
+  "id": "dtd-crules-12",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c12\ndescription: \"Probe with bad comment.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n<!-- a comment -- with a double hyphen -->\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C12",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C12",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "double hyphen",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C12"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-crules-04",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c4\ndescription: \"Probe referencing undeclared element.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a, probe_missing)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C4",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C4",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "probe_missing",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C4"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

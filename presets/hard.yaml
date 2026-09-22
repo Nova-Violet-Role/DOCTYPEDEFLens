@@ -1,0 +1,20 @@
+# DOCTYPEDEFLens preset: HARD — verdicts only.
+name: hard
+description: >
+  Verdict-level judgment over all DOCTYPEDEFLens suites. The model states
+  ok/FAIL (or the verdict form of the suite) with no evidence demanded.
+  Entry tier: proves the verdict habit before evidence is required.
+tier: 1
+epochs: 4
+edit_budget: 4
+batch_size: 25
+gate: hard
+suites:
+  - crules
+  - forge
+  - resolve
+  - fences
+  - lawprose
+  - real-tei
+  - real-v2
+  - real-v3

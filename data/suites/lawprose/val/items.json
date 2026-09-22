@@ -1,0 +1,64 @@
+[
+ {
+  "id": "dtd-lawprose-03",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l03\ndescription: \"Probe law in comment only.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` exactly as declared.\n<!-- reviewer note: check LAW.X.1 before shipping -->\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: INVOKED",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "INVOKED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-lawprose-09",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l09\ndescription: \"Probe both laws orphaned.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n<!ENTITY LAW.X.2 \"Ex law two holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` exactly as declared.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C10",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.2",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ORPHANED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

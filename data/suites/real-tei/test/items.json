@@ -1,0 +1,56 @@
+[
+ {
+  "id": "dtd-real-certaint-elem",
+  "prompt": "Count the <!ELEMENT declarations in this file. First line must be exactly `VERDICT: <n>`.\n\n\n<!--\nDTD module certainty. generated from ODD source 2019-01-29T22:24:54Z. This material is dual-licensed.\n[http://creativecommons.org/licenses/by/3.0/] Distributed under a Creative Commons Attribution 3.0 Unported License.  [http://www.opensource.org/licenses/BSD-2-Clause] Copyright 2019 TEI Consortium. All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. This software is provided by the copyright holders and contributors \"as is\" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright holder or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage. TEI material can be licensed differently depending on the use you intend to make of it. Hence it is made available under both the CC+BY and BSD-2 licences. The CC+BY licence is generally appropriate for usages which treat TEI content as data or documentation. The BSD-2 licence is generally appropriate for usage of TEI content in a software environment. For further information or clarification, please contact the TEI Consortium.\nEdition: Version 3.5.0. Last updated on\n\t29th January 2019, revision 3c0c64ec4\nCertainty and uncertainty\n-->\n\n<!ENTITY % certainty 'INCLUDE' >\n<![ %certainty; [\n\n<!--doc:indicates the degree of certainty associated with some aspect of the text markup. [] -->\n<!ELEMENT %n.certainty; %om.RR; (%model.descLike;|%model.certLike;)*>\n<!ATTLIST %n.certainty; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.certainty;\n %att.scoping.attributes;\n %att.global.attribute.xmlid;\n %att.global.attribute.n;\n %att.global.attribute.xmllang;\n %att.global.attribute.xmlbase;\n %att.global.attribute.xmlspace;\n %att.global.rendition.attribute.rend;\n %att.global.rendition.attribute.style;\n %att.global.rendition.attribute.rendition;\n %att.global.linking.attribute.corresp;\n %att.global.linking.attribute.synch;\n %att.global.linking.attribute.sameAs;\n %att.global.linking.attribute.copyOf;\n %att.global.linking.attribute.next;\n %att.global.linking.attribute.prev;\n %att.global.linking.attribute.exclude;\n %att.global.linking.attribute.select;\n %att.global.analytic.attribute.ana;\n %att.global.facs.attribute.facs;\n %att.global.change.attribute.change;\n %att.global.responsibility.attribute.resp;\n %att.global.source.attribute.source;\ncert %teidata.certainty;  #IMPLIED\nlocus (name|start|end|location|value) #REQUIRED\nassertedValue %teidata.word;  #IMPLIED\ngiven CDATA  #IMPLIED\ndegree %teidata.probability;  #IMPLIED >\n]]>\n\n<!ENTITY % precision 'INCLUDE' >\n<![ %precision; [\n\n<!--doc:indicates the numerical accuracy or precision associated with some aspect of the text markup. [] -->\n<!ELEMENT %n.precision; %om.RR; (%model.descLike;|%model.certLike;)*>\n<!ATTLIST %n.precision; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.precision;\n %att.global.attributes;\n %att.scoping.attributes;\n %att.ranging.attributes;\n %att.datable.attributes;\nprecision %teidata.certainty;  #IMPLIED\nstdDeviation %teidata.numeric;  #IMPLIED >\n]]>\n\n<!ENTITY % respons 'INCLUDE' >\n<![ %respons; [\n\n<!--doc:(responsibility) identifies the individual(s) responsible for some aspect of the content or markup of particular element(s). [] -->\n<!ELEMENT %n.respons; %om.RR; (%model.descLike;|%model.certLike;)*>\n<!ATTLIST %n.respons; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.respons;\n %att.global.attributes;\n %att.scoping.attributes;\nlocus NMTOKENS  #REQUIRED >\n]]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-realtei",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: 3",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "3",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "3"
+    ],
+    "min_tier": 3
+   }
+  ],
+  "source_path": "tei/certainty.dtd"
+ },
+ {
+  "id": "dtd-real-figures-elem",
+  "prompt": "Count the <!ELEMENT declarations in this file. First line must be exactly `VERDICT: <n>`.\n\n\n<!--\nDTD module figures. generated from ODD source 2019-01-29T22:24:54Z. This material is dual-licensed.\n[http://creativecommons.org/licenses/by/3.0/] Distributed under a Creative Commons Attribution 3.0 Unported License.  [http://www.opensource.org/licenses/BSD-2-Clause] Copyright 2019 TEI Consortium. All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. This software is provided by the copyright holders and contributors \"as is\" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright holder or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage. TEI material can be licensed differently depending on the use you intend to make of it. Hence it is made available under both the CC+BY and BSD-2 licences. The CC+BY licence is generally appropriate for usages which treat TEI content as data or documentation. The BSD-2 licence is generally appropriate for usage of TEI content in a software environment. For further information or clarification, please contact the TEI Consortium.\nEdition: Version 3.5.0. Last updated on\n\t29th January 2019, revision 3c0c64ec4\nTables, formulæ, notated music, and figures\n-->\n\n<!ENTITY % cell 'INCLUDE' >\n<![ %cell; [\n\n<!--doc:contains one cell of a table. [] -->\n<!ELEMENT %n.cell; %om.RR; %macro.specialPara;>\n<!ATTLIST %n.cell; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.cell;\n %att.global.attributes;\n %att.tableDecoration.attributes; >\n]]>\n\n<!ENTITY % figDesc 'INCLUDE' >\n<![ %figDesc; [\n\n<!--doc:(description of figure) contains a brief prose description of the appearance or content of a graphic figure, for use when documenting an image without displaying it. [] -->\n<!ELEMENT %n.figDesc; %om.RR; %macro.limitedContent;>\n<!ATTLIST %n.figDesc; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.figDesc;\n %att.global.attributes; >\n]]>\n\n<!ENTITY % figure 'INCLUDE' >\n<![ %figure; [\n\n<!--doc:groups elements representing or containing graphic information such as an illustration, formula, or figure. [] -->\n<!ELEMENT %n.figure; %om.RR; (%model.headLike;|%model.common;|%n.figDesc;|%model.graphicLike;|%model.global;|%model.divBottom;)*>\n<!ATTLIST %n.figure; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.figure;\n %att.global.attributes;\n %att.placement.attributes;\n %att.typed.attributes;\n %att.written.attributes; >\n]]>\n\n<!ENTITY % formula 'INCLUDE' >\n<![ %formula; [\n\n<!--doc:contains a mathematical or other formula. [] -->\n<!ELEMENT %n.formula; %om.RR; (#PCDATA|%model.graphicLike;|%model.hiLike;)*>\n<!ATTLIST %n.formula; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.formula;\n %att.global.attributes;\n %att.notated.attributes; >\n]]>\n\n<!ENTITY % notatedMusic 'INCLUDE' >\n<![ %notatedMusic; [\n\n<!--doc:encodes the presence of music notation in a text [] -->\n<!ELEMENT %n.notatedMusic; %om.RR; (%model.labelLike;|%model.ptrLike;|%n.graphic;|%n.binaryObject;|%n.seg;)*>\n<!ATTLIST %n.notatedMusic; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.notatedMusic;\n %att.global.attributes;\n %att.placement.attributes;\n %att.typed.attributes; >\n]]>\n\n<!ENTITY % row 'INCLUDE' >\n<![ %row; [\n\n<!--doc:contains one row of a table. [] -->\n<!ELEMENT %n.row; %om.RR; (%n.cell;)+>\n<!ATTLIST %n.row; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.row;\n %att.global.attributes;\n %att.tableDecoration.attributes; >\n]]>\n\n<!ENTITY % table 'INCLUDE' >\n<![ %table; [\n\n<!--doc:contains text displayed in tabular form, in rows and columns. [] -->\n<!ELEMENT %n.table; %om.RR; (((%model.headLike;|%model.global;)*,((%n.row;,(%model.global;)*)+|((%model.graphicLike;),(%model.global;)*)+),((%model.divBottom;),(%model.global;)*)*))>\n<!ATTLIST %n.table; xmlns CDATA \"http://www.tei-c.org/ns/1.0\">\n<!ATTLIST %n.table;\n %att.global.attributes;\n %att.typed.attributes;\nrows %teidata.count;  #IMPLIED\ncols %teidata.count;  #IMPLIED >\n]]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-realtei",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: 7",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "7",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "7"
+    ],
+    "min_tier": 3
+   }
+  ],
+  "source_path": "tei/figures.dtd"
+ }
+]

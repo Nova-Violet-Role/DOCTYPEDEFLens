@@ -1,0 +1,157 @@
+[
+ {
+  "id": "dtd-crules-00",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-ok\ndescription: \"Minimal valid probe.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ok",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: FAIL",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "probe_root",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ok"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-crules-05",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c5\ndescription: \"Probe missing one element mention.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and follows LAW.PROBE.1 throughout.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C5",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C5",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "probe_a",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C5"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-crules-10",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c10\ndescription: \"Probe never invoking its law.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` exactly as declared.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C10",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C10",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.PROBE.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C10"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-crules-15",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c15\ndescription: \"Probe with incomplete grammar map.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n\n<grammar_map>\nRender the `probe_root` root as below.\n</grammar_map>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C15",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C15",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "grammar_map",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C15"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-crules-02",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-c2\ndescription: \"Probe with unknown declaration.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n<!FOO bar>\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-crules",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C2",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C2",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "FOO",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C2"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

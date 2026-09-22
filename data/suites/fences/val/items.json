@@ -1,0 +1,64 @@
+[
+ {
+  "id": "dtd-fences-04",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n04\ndescription: \"Probe redeclare after fence.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset demo -->\n<!ENTITY R.4 \"first inside subset\">\n<!-- end subset demo -->\n<!ENTITY R.4 \"second after subset governs nothing\">\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C16",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C16",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "R.4",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C16"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-fences-06",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n06\ndescription: \"Probe backtick element mention.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset demo -->\n<!ELEMENT n06_el (#PCDATA)>\n<!-- end subset demo -->\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a`, also uses `n06_el` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ok",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: FAIL",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "probe_root",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ok"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

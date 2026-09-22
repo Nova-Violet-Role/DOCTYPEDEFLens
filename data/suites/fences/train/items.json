@@ -1,0 +1,157 @@
+[
+ {
+  "id": "dtd-fences-00",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n00\ndescription: \"Probe fenced subset used.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset demo -->\n<!ELEMENT n00_el (#PCDATA)>\n<!ENTITY N.1 \"n00 one\">\n<!-- end subset demo -->\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a`, `n00_el` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ok",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: FAIL",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "probe_root",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ok"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-fences-01",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n01\ndescription: \"Probe mismatched fence names.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset demo -->\n<!ELEMENT n01_el (#PCDATA)>\n<!ENTITY N.1 \"n01 one\">\n<!-- end subset othermo -->\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C5",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C5",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "n01_el",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C5"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-fences-02",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n02\ndescription: \"Probe unclosed fence.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset lone -->\n<!ELEMENT n02_el (#PCDATA)>\n<!ENTITY N.1 \"n02 one\">\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: FAIL C5",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C5",
+    "min_tier": 2
+   },
+   {
+    "kind": "contains",
+    "value": "n02_el",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "C5"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-fences-03",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n03\ndescription: \"Probe redeclare inside fence.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!-- begin subset demo -->\n<!ENTITY R.3 \"first inside\">\n<!ENTITY R.3 \"second inside\">\n<!-- end subset demo -->\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ok",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: FAIL",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "probe_root",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ok"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-fences-05",
+  "prompt": "State the rdc check verdict (rules C1-C16) for the following file. Your first line must be exactly `VERDICT: ok` or `VERDICT: FAIL <code>` naming the failing rule.\n\nFile under check:\n---\nname: probe-n05\ndescription: \"Probe driver pattern before fence.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY R.5 \"driver value before include\">\n<!-- begin subset demo -->\n<!ENTITY R.5 \"subset default\">\n<!-- end subset demo -->\n<!ENTITY LAW.PROBE.1 \"First probe law holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.PROBE.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-fences",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ok",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: FAIL",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "probe_root",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ok"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

@@ -1,0 +1,157 @@
+[
+ {
+  "id": "dtd-lawprose-00",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l00\ndescription: \"Probe law invoked directly.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per LAW.X.1.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: INVOKED",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "INVOKED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-lawprose-01",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l01\ndescription: \"Probe law invoked in backticks.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` (`LAW.X.1` governs this line).\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: INVOKED",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "INVOKED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-lawprose-02",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l02\ndescription: \"Probe orphaned law.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` exactly as declared.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C10",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ORPHANED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-lawprose-04",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l04\ndescription: \"Probe lowercase law mention.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\nBody names <probe_root> and renders `probe_a` per law.x.1 as written here.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "C10",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "ORPHANED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-lawprose-05",
+  "prompt": "Judge whether the declared law is invoked in the body of the following file (C10: a declared LAW.* needs a body invocation; comments, case and frontmatter all count exactly as the checker reads them). Your first line must be exactly `VERDICT: INVOKED` or `VERDICT: ORPHANED <law>` naming an uninvoked law.\n\nFile under check:\n---\nname: probe-l05\ndescription: \"Probe law in heading.\"\n---\n\n<!DOCTYPE probe_root [\n<!ELEMENT probe_root (probe_a)>\n<!ELEMENT probe_a (#PCDATA)>\n<!ENTITY LAW.X.1 \"Ex law one holds.\">\n]>\n\n## Rendering per LAW.X.1\n\nBody names <probe_root> and renders `probe_a` exactly as declared.\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-lawprose",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: INVOKED",
+    "min_tier": 1
+   },
+   {
+    "kind": "not_contains",
+    "value": "VERDICT: ORPHANED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "LAW.X.1",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "INVOKED"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

@@ -1,0 +1,54 @@
+[
+ {
+  "id": "dtd-resolve-07",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R07_nested_unresolved.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % b SYSTEM \"parts/b.dtd\">\n%b;\n]>\n\n--- parts/b.dtd ---\n<!ELEMENT beta (#PCDATA)>\n<!ENTITY B.1 \"beta one uses %shared;\">\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: UNRESOLVABLE",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "%shared;",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "%shared;"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-08",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R08_ghost_ignore.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % cg SYSTEM \"parts/condghost.dtd\">\n%cg;\n]>\n\n--- parts/condghost.dtd ---\n<![ IGNORE [\n<!ELEMENT ghost_el (#PCDATA)>\n<!ENTITY G.1 \"uses %ghost_undefined;\">\n]]>\n<!ELEMENT kept_el (#PCDATA)>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "cg",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "cg"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

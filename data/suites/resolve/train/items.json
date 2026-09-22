@@ -1,0 +1,132 @@
+[
+ {
+  "id": "dtd-resolve-00",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R00_valid_a.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % a SYSTEM \"parts/a.dtd\">\n%a;\n]>\n\n--- parts/a.dtd ---\n<!ELEMENT alpha (#PCDATA)>\n<!ENTITY A.1 \"alpha one\">\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "a",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "a"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-01",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R01_unresolved.md ---\n<!DOCTYPE probe_r [\n%nosuch;\n]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: UNRESOLVABLE",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "%nosuch;",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "%nosuch;"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-02",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R02_missing.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % m SYSTEM \"parts/missing.dtd\">\n%m;\n]>\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: UNRESOLVABLE",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "missing.dtd",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "missing.dtd"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-03",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R03_nested.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % b SYSTEM \"parts/b.dtd\">\n<!ENTITY % c SYSTEM \"parts/c.dtd\">\n%b;\n%c;\n]>\n\n--- parts/b.dtd ---\n<!ELEMENT beta (#PCDATA)>\n<!ENTITY B.1 \"beta one uses %shared;\">\n\n--- parts/c.dtd ---\n<!ELEMENT gamma (#PCDATA)>\n<!ENTITY % shared \"shared-value\">\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "b,c",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "b,c"
+    ],
+    "min_tier": 3
+   }
+  ]
+ },
+ {
+  "id": "dtd-resolve-04",
+  "prompt": "Decide whether `resolveFile` succeeds on the following src file. Your first line must be exactly `VERDICT: RESOLVED <order>` naming the include order, or `VERDICT: UNRESOLVABLE <reason>` naming what is missing.\n\nSrc file under check:\n--- src: R04_valid_c.md ---\n<!DOCTYPE probe_r [\n<!ENTITY % c SYSTEM \"parts/c.dtd\">\n%c;\n]>\n\n--- parts/c.dtd ---\n<!ELEMENT gamma (#PCDATA)>\n<!ENTITY % shared \"shared-value\">\n",
+  "skill": "doctypedef",
+  "task_type": "doctypedef-resolve",
+  "assertions": [
+   {
+    "kind": "contains",
+    "value": "VERDICT: RESOLVED",
+    "min_tier": 1
+   },
+   {
+    "kind": "contains",
+    "value": "c",
+    "min_tier": 2
+   },
+   {
+    "kind": "chain",
+    "parts": [
+     "VERDICT",
+     "c"
+    ],
+    "min_tier": 3
+   }
+  ]
+ }
+]

@@ -1,0 +1,19 @@
+# DOCTYPEDEFLens preset: VERY HARD — verdicts plus evidence.
+name: very-hard
+description: >
+  Verdict plus the offending construct named (rule codes, element names,
+  entity names, block names). Failing verdicts must name their culprit.
+tier: 2
+epochs: 6
+edit_budget: 6
+batch_size: 25
+gate: hard
+suites:
+  - crules
+  - forge
+  - resolve
+  - fences
+  - lawprose
+  - real-tei
+  - real-v2
+  - real-v3

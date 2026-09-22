@@ -1,0 +1,816 @@
+# DTD study: every file, its substance, its connections
+
+Source tree: 768 files read whole. 247 drivers, 382 modules, 139 entity libs.
+
+## (top) (10 files)
+
+- `ModularMonet.dtd` [module | elements: Features, Feature, Option, Include]
+- `WMSDKNS.DTD` [module | elements: document, node]
+- `XMLSchema.dtd` [module | elements: %schema, %complexType, %complexContent, %simpleContent, %extension, %element, %group, %all]
+- `XMLSchema2004.dtd` [module | elements: %schema, %complexType, %complexContent, %simpleContent, %extension, %element, %group, %all]
+- `datatypes.dtd` [module | elements: %simpleType, %restriction, %list, %union, %maxExclusive, %minExclusive, %maxInclusive, %minInclusive]
+- `datatypes2004.dtd` [module | elements: %simpleType, %restriction, %list, %union, %maxExclusive, %minExclusive, %maxInclusive, %minInclusive]
+- `edoc.dtd` [module | elements: overview, title, modules, module, description, briefDescription, fullDescription, author]
+- `gdb-syscalls.dtd` [module | elements: syscalls-info, syscall]
+- `krita.dtd` [module | elements: DOC, IMAGE, LAYERS, layer, FILTERCONFIG]
+- `language.dtd` [module | elements: language, escape-char, line-comment, block-comment, string, syntax-item, pattern-item, keyword-list]
+
+## JATS-DTDs (90 files)
+
+- `BITS-book-oasis-custom-classes2.ent` [entity-lib | entities: phrase.class, emphasis.class, face-markup.class, x.class, citation.class, citation-minus-alt.class, citation-additions.class, attrib.class] | included-by: BITS-book-oasis-custom-modules2.ent
+- `BITS-book-oasis-custom-modules2.ent` [driver/shell] | includes: %JATS-oasis-namespace.ent→JATS-oasis-namespace1.ent, %xinclude.ent→BITS-xinclude2.ent, %book-oasis-custom-classes.ent→BITS-book-oasis-custom-classes2.ent, %bookcustom-mixes.ent→BITS-bookcustom-mixes2.ent, %bookcustom-models.ent→BITS-bookcustom-models2.ent, %bits-common.ent→BITS-common2.ent | included-by: BITS-book-oasis2.dtd (+9 more)
+- `BITS-book-oasis2.dtd` [driver+module | elements: book, book-meta, front-matter, book-body, book-back] | includes: %book-oasis-custom-modules.ent→BITS-book-oasis-custom-modules2.ent, %mathml3-modules.ent→JATS-mathml3-modules1.ent, %modules.ent→JATS-modules1.ent
+- `BITS-book-part-oasis-wrap2.ent` [module | elements: book-part-wrapper] | included-by: BITS-book-oasis-custom-modules2.ent
+- `BITS-book-part-wrap2.ent` [module | elements: book-part-wrapper] | included-by: BITS-bookcustom-modules2.ent
+- `BITS-book-part2.ent` [module | elements: book-part, book-part-meta, book-part-id, body, back, collection-meta, collection-id, named-book-part-body] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-book2.dtd` [driver+module | elements: book, book-meta, front-matter, book-body, book-back] | includes: %bookcustom-modules.ent→BITS-bookcustom-modules2.ent, %mathml3-modules.ent→JATS-mathml3-modules1.ent, %modules.ent→JATS-modules1.ent
+- `BITS-bookcustom-classes2.ent` [entity-lib | entities: phrase.class, emphasis.class, face-markup.class, x.class, citation.class, citation-minus-alt.class, citation-additions.class, attrib.class] | included-by: BITS-bookcustom-modules2.ent
+- `BITS-bookcustom-mixes2.ent` [entity-lib | entities: all-phrase, book-parts-mix, para-level, para-level-minus-x, answer-para-level, inside-cell, emphasized-text, just-rendition] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-bookcustom-models2.ent` [entity-lib | entities: dtd-version, abbrev-elements, aff-elements, alt-title-elements, anonymous-elements, article-title-elements, attrib-elements, chem-struct-elements] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-bookcustom-modules2.ent` [driver/shell] | includes: %xinclude.ent→BITS-xinclude2.ent, %bookcustom-classes.ent→BITS-bookcustom-classes2.ent, %bookcustom-mixes.ent→BITS-bookcustom-mixes2.ent, %bookcustom-models.ent→BITS-bookcustom-models2.ent, %bits-common.ent→BITS-common2.ent, %bookmeta.ent→BITS-bookmeta2.ent | included-by: BITS-book2.dtd (+9 more)
+- `BITS-bookmeta2.ent` [module | elements: book-id, book-title, book-title-group, event-desc, event, pub-history, book-volume-number, book-volume-id] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-common2.ent` [module | elements: name-address-wrap, serif] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-embedded-index2.ent` [module | elements: index-term, index-term-range-end, see, see-also] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-index2.ent` [module | elements: index-group, index, index-entry, index-div, see-entry, see-also-entry, index-title-group] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-question-answer2.ent` [module | elements: question, question-wrap, question-wrap-group, question-preamble, answer, answer-set, explanation, option] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-toc-index-nav2.ent` [module | elements: nav-pointer, nav-pointer-group] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-toc2.ent` [module | elements: toc-group, toc, toc-entry, toc-div, toc-title-group] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `BITS-xinclude2.ent` [module | elements: xi:include, xi:fallback] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent
+- `JATS-XHTMLtablesetup1.ent` [entity-lib | entities: table.qname, caption.qname, thead.qname, tfoot.qname, tbody.qname, colgroup.qname, col.qname, tr.qname] | included-by: JATS-modules1.ent
+- `JATS-ali-namespace1.ent` [entity-lib | entities: ali.xmlns, ali.prefix, ali.xmlns.attrname, ali.xmlns.attrib] | included-by: JATS-modules1.ent
+- `JATS-articleauthcustom-classes1.ent` [entity-lib | entities: emphasis.class, face-markup.class, phrase.class, alternatives-display.class, block-display.class, inline-display.class, simple-display.class, rest-of-para.class] | included-by: JATS-articleauthcustom-modules1.ent
+- `JATS-articleauthcustom-mixes1.ent` [entity-lib | entities: para-level, emphasized-text, just-rendition, rendition-plus, simple-phrase, simple-text] | included-by: JATS-articleauthcustom-modules1.ent
+- `JATS-articleauthcustom-models1.ent` [entity-lib | entities: addr-line-elements, aff-elements, award-id-elements, chem-struct-elements, citation-elements, collab-elements, comment-elements, conf-acronym-elements] | included-by: JATS-articleauthcustom-modules1.ent
+- `JATS-articleauthcustom-modules1.ent` [driver/shell] | includes: %articleauthcustom-classes.ent→JATS-articleauthcustom-classes1.ent, %articleauthcustom-mixes.ent→JATS-articleauthcustom-mixes1.ent, %articleauthcustom-models.ent→JATS-articleauthcustom-models1.ent, %nlmcitation.ent→JATS-nlmcitation1.ent | included-by: JATS-articleauthoring1-mathml3.dtd
+- `JATS-articleauthoring1-mathml3.dtd` [driver+module | elements: article, front, body, back] | includes: %articleauthcustom-modules.ent→JATS-articleauthcustom-modules1.ent, %mathml3-modules.ent→JATS-mathml3-modules1.ent, %modules.ent→JATS-modules1.ent
+- `JATS-articlemeta1.ent` [module | elements: article-meta, article-id, article-categories, subj-group, subject, compound-subject, compound-subject-part, series-title] | included-by: JATS-modules1.ent
+- `JATS-backmatter1.ent` [module | elements: app-group, app, fn-group, glossary] | included-by: JATS-modules1.ent
+- `JATS-chars1.ent` [module | elements: private-char, glyph-data, glyph-ref] | included-by: JATS-modules1.ent
+- `JATS-common-atts1.ent` [entity-lib | entities: jats-base-atts, jats-common-atts, jats-common-atts-id-required] | included-by: BITS-bookcustom-modules2.ent, JATS-modules1.ent
+- `JATS-common1.ent` [module | elements: ali:free_to_read, ali:license_ref, contrib-group, contrib, copyright-holder, copyright-statement, copyright-year, license] | included-by: JATS-modules1.ent
+- `JATS-default-classes1.ent` [entity-lib | entities: address.class, address-line.class, citation.class, citation-minus-alt.class, def.class, degree.class, id.class, label.class] | included-by: JATS-modules1.ent
+- `JATS-default-mixes1.ent` [entity-lib | entities: sec-level, doc-back-matter-mix, sec-back-matter-mix, para-level, inside-cell, inside-table-wrap, emphasized-text, just-rendition] | included-by: JATS-modules1.ent
+- `JATS-display1.ent` [module | elements: array, boxed-text, chem-struct-wrap, chem-struct, fig-group, fig, caption, graphic] | included-by: JATS-modules1.ent
+- `JATS-format1.ent` [module | elements: hr, break, bold, fixed-case, italic, monospace, roman, sans-serif] | included-by: JATS-modules1.ent
+- `JATS-funding1.ent` [module | elements: funding-group, funding-statement, open-access, award-group, funding-source, award-id, principal-award-recipient, principal-investigator] | included-by: JATS-modules1.ent
+- `JATS-journalmeta1.ent` [module | elements: journal-meta, journal-title-group, journal-title, journal-subtitle, abbrev-journal-title] | included-by: JATS-modules1.ent
+- `JATS-journalpub-oasis-custom-classes1.ent` [entity-lib | entities: emphasis.class, face-markup.class, citation.class, citation-additions.class, citation-minus-alt.class, contrib-info.class, date.class, name.class] | included-by: JATS-journalpub-oasis-custom-modules1.ent
+- `JATS-journalpub-oasis-custom-modules1.ent` [driver/shell] | includes: %JATS-oasis-namespace.ent→JATS-oasis-namespace1.ent, %journalpub-oasis-custom-classes.ent→JATS-journalpub-oasis-custom-classes1.ent, %journalpubcustom-mixes.ent→JATS-journalpubcustom-mixes1.ent, %journalpubcustom-models.ent→JATS-journalpubcustom-models1.ent, %nlmcitation.ent→JATS-nlmcitation1.ent | included-by: JATS-journalpublishing-oasis-article1-mathml3.dtd
+- `JATS-journalpubcustom-classes1.ent` [entity-lib | entities: emphasis.class, face-markup.class, citation.class, citation-additions.class, citation-minus-alt.class, contrib-info.class, date.class, name.class] | included-by: JATS-journalpubcustom-modules1.ent
+- `JATS-journalpubcustom-mixes1.ent` [entity-lib | entities: emphasized-text, just-rendition, sec-back-matter-mix] | included-by: JATS-journalpub-oasis-custom-modules1.ent, JATS-journalpubcustom-modules1.ent
+- `JATS-journalpubcustom-models1.ent` [entity-lib | entities: abbrev-journal-title-elements, citation-elements, conf-acronym-elements, conf-loc-elements, conf-name-elements, conf-num-elements, conf-sponsor-elements, degrees-elements] | included-by: JATS-journalpub-oasis-custom-modules1.ent, JATS-journalpubcustom-modules1.ent
+- `JATS-journalpubcustom-modules1.ent` [driver/shell] | includes: %journalpubcustom-classes.ent→JATS-journalpubcustom-classes1.ent, %journalpubcustom-mixes.ent→JATS-journalpubcustom-mixes1.ent, %journalpubcustom-models.ent→JATS-journalpubcustom-models1.ent, %nlmcitation.ent→JATS-nlmcitation1.ent | included-by: JATS-journalpublishing1-mathml3.dtd
+- `JATS-journalpublishing-oasis-article1-mathml3.dtd` [driver+module | elements: article, front, body, back, sub-article, front-stub, response] | includes: %journalpub-oasis-custom-modules.ent→JATS-journalpub-oasis-custom-modules1.ent, %mathml3-modules.ent→JATS-mathml3-modules1.ent, %modules.ent→JATS-modules1.ent
+- `JATS-journalpublishing1-mathml3.dtd` [driver+module | elements: article, front, body, back, sub-article, front-stub, response] | includes: %journalpubcustom-modules.ent→JATS-journalpubcustom-modules1.ent, %mathml3-modules.ent→JATS-mathml3-modules1.ent, %modules.ent→JATS-modules1.ent
+- `JATS-link1.ent` [module | elements: fn, target, xref, inline-supplementary-material] | included-by: JATS-modules1.ent
+- `JATS-list1.ent` [module | elements: def-list, term-head, def-head, def-item, term, list, list-item] | included-by: JATS-modules1.ent
+- `JATS-math1.ent` [module | elements: inline-formula, disp-formula, disp-formula-group, tex-math] | included-by: JATS-modules1.ent
+- `JATS-mathml3-mathmlsetup1.ent` [entity-lib | entities: Schema.prefix, Schema.xmlns, Schema.xmlns.attrib, MATHML.prefixed, MATHML.prefix, MATHML.pfx, math.qname, mathml-charent.module] | included-by: JATS-modules1.ent
+- `JATS-mathml3-modules1.ent` [driver/shell] | includes: %mathml-qname.mod→mathml3-qname1.mod, %mathml.dtd→mathml3.dtd, %ent-mmlextra→mathml/mmlextra.ent, %ent-mmlalias→mathml/mmlalias.ent | included-by: BITS-book-oasis2.dtd, BITS-book2.dtd, JATS-articleauthoring1-mathml3.dtd, JATS-journalpublishing-oasis-article1-mathml3.dtd, JATS-journalpublishing1-mathml3.dtd
+- `JATS-modules1.ent` [driver/shell] | includes: %default-classes.ent→JATS-default-classes1.ent, %default-mixes.ent→JATS-default-mixes1.ent, %JATS-common-atts.ent→JATS-common-atts1.ent, %common.ent→JATS-common1.ent, %articlemeta.ent→JATS-articlemeta1.ent, %backmatter.ent→JATS-backmatter1.ent | included-by: BITS-book-oasis2.dtd, BITS-book2.dtd, JATS-articleauthoring1-mathml3.dtd, JATS-journalpublishing-oasis-article1-mathml3.dtd, JATS-journalpublishing1-mathml3.dtd (+28 more)
+- `JATS-nlmcitation1.ent` [module | elements: nlm-citation] | included-by: BITS-book-oasis-custom-modules2.ent, BITS-bookcustom-modules2.ent, JATS-articleauthcustom-modules1.ent, JATS-journalpub-oasis-custom-modules1.ent, JATS-journalpubcustom-modules1.ent, JATS-modules1.ent
+- `JATS-notat1.ent` [module] | included-by: JATS-modules1.ent
+- `JATS-oasis-namespace1.ent` [entity-lib | entities: oasis.xmlns, oasis.prefix, oasis.xmlns.attrname, oasis.pfx, oasis.xmlns.attrib, otable.qname, otgroup.qname, otbody.qname] | included-by: BITS-book-oasis-custom-modules2.ent, JATS-journalpub-oasis-custom-modules1.ent
+- `JATS-oasis-tablesetup1.ent` [entity-lib | entities: tbl.table.name, yesorno, tbl.table.att, tbl.entry.att, tbl.tgroup.att, tbl.thead.att, tbl.tbody.att, tbl.colspec.att] | included-by: JATS-modules1.ent
+- `JATS-para1.ent` [module | elements: p, disp-quote, speech, speaker, statement, verse-group, verse-line] | included-by: JATS-modules1.ent
+- `JATS-phrase1.ent` [module | elements: abbrev, milestone-start, milestone-end, named-content, styled-content] | included-by: JATS-modules1.ent
+- `JATS-references1.ent` [module | elements: ref-list, ref, note, access-date, annotation, chapter-title, comment, data-title] | included-by: JATS-modules1.ent
+- `JATS-related-object1.ent` [module | elements: related-object] | included-by: JATS-modules1.ent
+- `JATS-section1.ent` [module | elements: floats-group, sec, sec-meta] | included-by: JATS-modules1.ent
+- `JATS-xmlspecchars1.ent` [driver/shell] | includes: %ISOlat1→iso8879/isolat1.ent, %ISOlat2→iso8879/isolat2.ent, %ISObox→iso8879/isobox.ent, %ISOdia→iso8879/isodia.ent, %ISOnum→iso8879/isonum.ent, %ISOpub→iso8879/isopub.ent | included-by: JATS-modules1.ent (+16 more)
+- `isobox.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isobox.ent, dbcentx.mod, isobox.ent
+- `isocyr1.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr1.ent, dbcentx.mod, isocyr1.ent
+- `isocyr2.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr2.ent, dbcentx.mod, isocyr2.ent
+- `isodia.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isodia.ent, dbcentx.mod, isodia.ent
+- `isolat1.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat1.ent, dbcentx.mod, isolat1.ent
+- `isolat2.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat2.ent, dbcentx.mod, isolat2.ent
+- `isonum.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isonum.ent, dbcentx.mod, isonum.ent
+- `isopub.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isopub.ent, dbcentx.mod, isopub.ent
+- `isoamsa.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, isoamsa.ent
+- `isoamsb.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, isoamsb.ent
+- `isoamsc.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, isoamsc.ent
+- `isoamsn.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, isoamsn.ent
+- `isoamso.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, isoamso.ent
+- `isoamsr.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, isoamsr.ent
+- `isogrk3.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, isogrk3.ent
+- `isomfrk.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomfrk.ent, isomfrk.ent
+- `isomopf.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomopf.ent, isomopf.ent
+- `isomscr.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomscr.ent, isomscr.ent
+- `isotech.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, isotech.ent
+- `mmlalias.ent` [module] | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlalias.ent
+- `mmlextra.ent` [entity-lib | entities: plane1D] | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlextra.ent
+- `mathml3-qname1.mod` [entity-lib | entities: NS.prefixed, MATHML.prefixed, XLINK.prefix, XLINK.xmlns, XLINK.xmlns.attrib, Schema.prefix, Schema.xmlns, Schema.xmlns.attrib] | included-by: JATS-mathml3-modules1.ent
+- `mathml3.dtd` [driver+module | elements: %cn.qname, %ci.qname, %csymbol.qname, %apply.qname, %bind.qname, %share.qname, %cerror.qname, %cbytes.qname] | includes: %mathml-qname.mod→mathml3-qname.mod, %isobox→isobox.ent, %isocyr1→isocyr1.ent, %isocyr2→isocyr2.ent, %isodia→isodia.ent, %isolat1→isolat1.ent | included-by: JATS-mathml3-modules1.ent, mathml2-3.dtd, mathml2.dtd, mathml3-ditadriver.dtd, mathml2-3.dtd, mathml2.dtd (+16 more)
+- `oasis-exchange.ent` [module | elements: %tbl.table.name, %otgroup.qname, %ocolspec.qname, %othead.qname, %otbody.qname, %orow.qname, %oentry.qname] | included-by: JATS-modules1.ent
+- `xhtml-inlstyle-1.mod` [entity-lib | entities: style.attrib, Core.extra.attrib] | included-by: JATS-modules1.ent, xhtml-math11-f.dtd, xhtml-math-svg-flat.dtd, xhtml11-flat.dtd, xhtml11.dtd
+- `xhtml-table-1.mod` [module | elements: %table.qname, %caption.qname, %thead.qname, %tfoot.qname, %tbody.qname, %colgroup.qname, %col.qname, %tr.qname] | included-by: JATS-modules1.ent, xhtml-math11-f.dtd, xhtml-math-svg-flat.dtd, xhtml11-flat.dtd, xhtml11.dtd
+- `isogrk1.ent` [module] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk1.ent, dbcentx.mod, isogrk1.ent
+- `isogrk2.ent` [module] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk2.ent, dbcentx.mod, isogrk2.ent
+- `isogrk4.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk4.ent, dbcentx.mod, isogrk4.ent
+
+## daisy (11 files)
+
+- `bookmark-2005-1.dtd` [module | elements: bookmarkSet, title, uid, bookmark, ncxRef, lastmark, hilite, hiliteStart]
+- `distInfo-2005-1.dtd` [module | elements: distInfo, book, docTitle, docAuthor, distMap, smilRef, changeMsg, text]
+- `dtbook-2005-1.dtd` [driver+module | elements: dtbook, head, link, meta, book, frontmatter, bodymatter, rearmatter] | includes: %dramaModule→drama.dtd, %poemModule→poem.dtd, %dramaModule→drama.dtd
+- `dtbook-2005-2.dtd` [driver+module | elements: dtbook, head, link, meta, book, frontmatter, bodymatter, rearmatter] | includes: %dramaModule→drama.dtd, %poemModule→poem.dtd, %dramaModule→drama.dtd
+- `dtbook-2005-3.dtd` [driver+module | elements: dtbook, head, link, meta, book, frontmatter, bodymatter, rearmatter] | includes: %dramaModule→drama.dtd, %poemModule→poem.dtd, %dramaModule→drama.dtd
+- `dtbsmil-2005-1.dtd` [module | elements: smil, head, meta, layout, region, customAttributes, customTest, body]
+- `dtbsmil-2005-2.dtd` [module | elements: smil, head, meta, layout, region, customAttributes, customTest, body]
+- `ncx-2005-1.dtd` [module | elements: ncx, head, smilCustomTest, meta, docTitle, docAuthor, navMap, navPoint]
+- `oeb12.ent` [driver/shell] | includes: %OEBEntities→http://openebook.org/dtds/oeb-1.2/oeb12.ent | included-by: oebpkg12.dtd
+- `oebpkg12.dtd` [driver+module | elements: package, metadata, dc-metadata, dc:Title, dc:Identifier, dc:Language, dc:Contributor, dc:Coverage] | includes: %OEBEntities→http://openebook.org/dtds/oeb-1.2/oeb12.ent
+- `resource-2005-1.dtd` [module | elements: resources, head, meta, scope, nodeSet, resource, text, audio]
+
+## docbook (116 files)
+
+- `calstblx.dtd` [module | elements: table, tgroup, colspec, spanspec, thead, tfoot, tbody, row] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `dbcentx.mod` [driver/shell] | includes: %dbcent→dbcentx.mod, %ISOamsa→ent/iso-amsa.ent, %ISOamsb→ent/iso-amsb.ent, %ISOamsc→ent/iso-amsc.ent, %ISOamsn→ent/iso-amsn.ent, %ISOamso→ent/iso-amso.ent | included-by: docbookx.dtd, dbcentx.mod, docbookx.dtd, dbcentx.mod, docbookx.dtd, dbcentx.mod (+14 more)
+- `dbgenent.mod` [driver/shell] | includes: %dbgenent→dbgenent.mod, %all-titles→booktitles.ent | included-by: docbookx.dtd, dbgenent.mod, docbookx.dtd, dbgenent.mod, docbookx.dtd, dbgenent.mod
+- `dbhierx.mod` [driver+module | elements: set, setinfo, book, bookinfo, dedication, colophon, toc, tocfront] | includes: %dbhier→dbhierx.mod | included-by: docbookx.dtd, dbhierx.mod, docbookx.dtd, dbhierx.mod, docbookx.dtd, dbhierx.mod
+- `dbnotnx.mod` [driver/shell] | includes: %dbnotn→dbnotnx.mod | included-by: docbookx.dtd, dbnotnx.mod, docbookx.dtd, dbnotnx.mod, docbookx.dtd, dbnotnx.mod
+- `dbpoolx.mod` [driver+module | elements: title, titleabbrev, subtitle, biblioentry, bibliomixed, articleinfo, biblioset, bibliomset] | includes: %dbpool→dbpoolx.mod, %tablemodel→calstblx.dtd, %tablemodel→soextblx.dtd | included-by: docbookx.dtd, dbpoolx.mod, docbookx.dtd, dbpoolx.mod, docbookx.dtd, dbpoolx.mod
+- `docbookx.dtd` [driver/shell] | includes: %DocBookDTD→http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd, %dbnotn→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbcent→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbpool→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbhier→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbgenent→http://www.oasis-open.org/docbook/xml/configerror.txt | included-by: dbmathml.dtd, dbsvg.dtd, docbookx.dtd, docbookx.dtd, docbookx.dtd (+5 more)
+- `iso-amsa.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsb.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsc.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsn.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amso.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsr.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-box.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-cyr1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-cyr2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-dia.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk3.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk4.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-lat1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-lat2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-num.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-pub.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-tech.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `soextblx.dtd` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `calstblx.dtd` [module | elements: table, tgroup, colspec, spanspec, thead, tfoot, tbody, row] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `dbcentx.mod` [driver/shell] | includes: %dbcent→dbcentx.mod, %ISOamsa→ent/iso-amsa.ent, %ISOamsb→ent/iso-amsb.ent, %ISOamsc→ent/iso-amsc.ent, %ISOamsn→ent/iso-amsn.ent, %ISOamso→ent/iso-amso.ent | included-by: dbcentx.mod, docbookx.dtd, docbookx.dtd, dbcentx.mod, docbookx.dtd, dbcentx.mod (+14 more)
+- `dbgenent.mod` [driver/shell] | includes: %dbgenent→dbgenent.mod, %all-titles→booktitles.ent | included-by: dbgenent.mod, docbookx.dtd, docbookx.dtd, dbgenent.mod, docbookx.dtd, dbgenent.mod
+- `dbhierx.mod` [driver+module | elements: set, setinfo, book, bookinfo, dedication, colophon, toc, tocfront] | includes: %dbhier→dbhierx.mod | included-by: dbhierx.mod, docbookx.dtd, docbookx.dtd, dbhierx.mod, docbookx.dtd, dbhierx.mod
+- `dbmathml.dtd` [driver/shell] | includes: %DocBookMathMLDTD→http://www.oasis-open.org/docbook/xml/mathml/1.1CR1/dbmathml.dtd, %docbook→http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd, %mathml→http://www.w3.org/TR/MathML2/dtd/mathml2.dtd
+- `dbnotnx.mod` [driver/shell] | includes: %dbnotn→dbnotnx.mod | included-by: dbnotnx.mod, docbookx.dtd, docbookx.dtd, dbnotnx.mod, docbookx.dtd, dbnotnx.mod
+- `dbpoolx.mod` [driver+module | elements: title, titleabbrev, subtitle, biblioentry, bibliomixed, articleinfo, biblioset, bibliomset] | includes: %dbpool→dbpoolx.mod, %htmltbl→htmltblx.mod, %tablemodel→calstblx.dtd, %tablemodel→soextblx.dtd | included-by: dbpoolx.mod, docbookx.dtd, docbookx.dtd, dbpoolx.mod, docbookx.dtd, dbpoolx.mod
+- `dbsvg.dtd` [driver+module | elements: imageobject] | includes: %DocBookSVGDTD→http://www.oasis-open.org/docbook/xml/svg/1.1CR1/dbsvg.dtd, %docbook.dtd→http://docbook.org/xml/4.3/docbookx.dtd, %svg.dtd→http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd
+- `docbookx.dtd` [driver/shell] | includes: %DocBookDTD→http://www.oasis-open.org/docbook/xml/4.3b2/docbookx.dtd, %dbnotn→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbcent→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbpool→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbhier→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbgenent→http://www.oasis-open.org/docbook/xml/configerror.txt | included-by: docbookx.dtd, dbmathml.dtd, dbsvg.dtd, docbookx.dtd, docbookx.dtd (+5 more)
+- `iso-amsa.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsb.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsc.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsn.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amso.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-amsr.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-box.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-cyr1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-cyr2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-dia.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk3.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-grk4.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-lat1.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-lat2.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-num.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-pub.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `iso-tech.ent` [module] | included-by: dbcentx.mod, dbcentx.mod
+- `htmltblx.mod` [driver+module | elements: colgroup, col, tr, th, td] | includes: %htmltbl→htmltblx.mod | included-by: dbpoolx.mod, dbpoolx.mod, htmltblx.mod, dbpoolx.mod, htmltblx.mod
+- `soextblx.dtd` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `xinclude.mod` [module | elements: xi:include, xi:fallback]
+- `calstblx.dtd` [module | elements: table, tgroup, colspec, spanspec, thead, tfoot, tbody, row] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `dbcentx.mod` [driver/shell] | includes: %dbcent→dbcentx.mod, %ISOamsa→ent/isoamsa.ent, %ISOamsb→ent/isoamsb.ent, %ISOamsc→ent/isoamsc.ent, %ISOamsn→ent/isoamsn.ent, %ISOamso→ent/isoamso.ent | included-by: dbcentx.mod, docbookx.dtd, dbcentx.mod, docbookx.dtd, docbookx.dtd, dbcentx.mod (+14 more)
+- `dbgenent.mod` [driver/shell] | includes: %dbgenent→dbgenent.mod, %all-titles→booktitles.ent | included-by: dbgenent.mod, docbookx.dtd, dbgenent.mod, docbookx.dtd, docbookx.dtd, dbgenent.mod
+- `dbhierx.mod` [driver+module | elements: set, setinfo, book, bookinfo, dedication, colophon, toc, tocfront] | includes: %dbhier→dbhierx.mod | included-by: dbhierx.mod, docbookx.dtd, dbhierx.mod, docbookx.dtd, docbookx.dtd, dbhierx.mod
+- `dbnotnx.mod` [driver/shell] | includes: %dbnotn→dbnotnx.mod | included-by: dbnotnx.mod, docbookx.dtd, dbnotnx.mod, docbookx.dtd, docbookx.dtd, dbnotnx.mod
+- `dbpoolx.mod` [driver+module | elements: title, titleabbrev, subtitle, bibliolist, biblioentry, bibliomixed, articleinfo, biblioset] | includes: %dbpool→dbpoolx.mod, %htmltbl→htmltblx.mod, %tablemodel→calstblx.dtd, %tablemodel→soextblx.dtd | included-by: dbpoolx.mod, docbookx.dtd, dbpoolx.mod, docbookx.dtd, docbookx.dtd, dbpoolx.mod
+- `docbookx.dtd` [driver/shell] | includes: %DocBookDTD→http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd, %dbnotn→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbcent→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbpool→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbhier→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbgenent→http://www.oasis-open.org/docbook/xml/configerror.txt | included-by: docbookx.dtd, dbmathml.dtd, dbsvg.dtd, docbookx.dtd, docbookx.dtd (+5 more)
+- `isoamsa.ent` [driver/shell] | includes: %isoamsa→http://www.w3.org/2003/entities/iso8879/isoamsa.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamsa.ent, mathml2.dtd
+- `isoamsb.ent` [driver/shell] | includes: %isoamsb→http://www.w3.org/2003/entities/iso8879/isoamsb.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamsb.ent, mathml2.dtd
+- `isoamsc.ent` [driver/shell] | includes: %isoamsc→http://www.w3.org/2003/entities/iso8879/isoamsc.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamsc.ent, mathml2.dtd
+- `isoamsn.ent` [driver/shell] | includes: %isoamsn→http://www.w3.org/2003/entities/iso8879/isoamsn.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamsn.ent, mathml2.dtd
+- `isoamso.ent` [driver/shell] | includes: %isoamso→http://www.w3.org/2003/entities/iso8879/isoamso.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamso.ent, mathml2.dtd
+- `isoamsr.ent` [driver/shell] | includes: %isoamsr→http://www.w3.org/2003/entities/iso8879/isoamsr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isoamsr.ent, mathml2.dtd
+- `isobox.ent` [driver/shell] | includes: %isobox→http://www.w3.org/2003/entities/iso8879/isobox.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isobox.ent, mathml2.dtd
+- `isocyr1.ent` [driver/shell] | includes: %isocyr1→http://www.w3.org/2003/entities/iso8879/isocyr1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isocyr1.ent, mathml2.dtd
+- `isocyr2.ent` [driver/shell] | includes: %isocyr2→http://www.w3.org/2003/entities/iso8879/isocyr2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isocyr2.ent, mathml2.dtd
+- `isodia.ent` [driver/shell] | includes: %isodia→http://www.w3.org/2003/entities/iso8879/isodia.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isodia.ent, mathml2.dtd
+- `isogrk1.ent` [driver/shell] | includes: %isogrk1→http://www.w3.org/2003/entities/iso8879/isogrk1.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, dbcentx.mod, isogrk1.ent
+- `isogrk2.ent` [driver/shell] | includes: %isogrk2→http://www.w3.org/2003/entities/iso8879/isogrk2.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, dbcentx.mod, isogrk2.ent
+- `isogrk3.ent` [driver/shell] | includes: %isogrk3→http://www.w3.org/2003/entities/iso8879/isogrk3.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isogrk3.ent, mathml2.dtd
+- `isogrk4.ent` [driver/shell] | includes: %isogrk4→http://www.w3.org/2003/entities/iso8879/isogrk4.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, dbcentx.mod, isogrk4.ent
+- `isolat1.ent` [driver/shell] | includes: %isolat1→http://www.w3.org/2003/entities/iso8879/isolat1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isolat1.ent, mathml2.dtd
+- `isolat2.ent` [driver/shell] | includes: %isolat2→http://www.w3.org/2003/entities/iso8879/isolat2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isolat2.ent, mathml2.dtd
+- `isonum.ent` [driver/shell] | includes: %isonum→http://www.w3.org/2003/entities/iso8879/isonum.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isonum.ent, mathml2.dtd
+- `isopub.ent` [driver/shell] | includes: %isopub→http://www.w3.org/2003/entities/iso8879/isopub.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isopub.ent, mathml2.dtd
+- `isotech.ent` [driver/shell] | includes: %isotech→http://www.w3.org/2003/entities/iso8879/isotech.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, dbcentx.mod, isotech.ent, mathml2.dtd
+- `htmltblx.mod` [driver+module | elements: colgroup, col, tr, th, td] | includes: %htmltbl→htmltblx.mod | included-by: dbpoolx.mod, htmltblx.mod, dbpoolx.mod, dbpoolx.mod, htmltblx.mod
+- `soextblx.dtd` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `xinclude.mod` [module | elements: xi:include, xi:fallback]
+- `calstblx.dtd` [module | elements: table, tgroup, colspec, spanspec, thead, tfoot, tbody, row] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `dbcentx.mod` [driver/shell] | includes: %dbcent→dbcentx.mod, %ISOamsa→ent/isoamsa.ent, %ISOamsb→ent/isoamsb.ent, %ISOamsc→ent/isoamsc.ent, %ISOamsn→ent/isoamsn.ent, %ISOamso→ent/isoamso.ent | included-by: dbcentx.mod, docbookx.dtd, dbcentx.mod, docbookx.dtd, dbcentx.mod, docbookx.dtd (+14 more)
+- `dbgenent.mod` [driver/shell] | includes: %dbgenent→dbgenent.mod, %all-titles→booktitles.ent | included-by: dbgenent.mod, docbookx.dtd, dbgenent.mod, docbookx.dtd, dbgenent.mod, docbookx.dtd
+- `dbhierx.mod` [driver+module | elements: set, setinfo, book, bookinfo, dedication, colophon, toc, tocfront] | includes: %dbhier→dbhierx.mod | included-by: dbhierx.mod, docbookx.dtd, dbhierx.mod, docbookx.dtd, dbhierx.mod, docbookx.dtd
+- `dbnotnx.mod` [driver/shell] | includes: %dbnotn→dbnotnx.mod | included-by: dbnotnx.mod, docbookx.dtd, dbnotnx.mod, docbookx.dtd, dbnotnx.mod, docbookx.dtd
+- `dbpoolx.mod` [driver+module | elements: title, titleabbrev, subtitle, bibliolist, biblioentry, bibliomixed, articleinfo, biblioset] | includes: %dbpool→dbpoolx.mod, %htmltbl→htmltblx.mod, %tablemodel→calstblx.dtd, %tablemodel→soextblx.dtd | included-by: dbpoolx.mod, docbookx.dtd, dbpoolx.mod, docbookx.dtd, dbpoolx.mod, docbookx.dtd
+- `docbookx.dtd` [driver/shell] | includes: %DocBookDTD→http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd, %dbnotn→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbcent→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbpool→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbhier→http://www.oasis-open.org/docbook/xml/configerror.txt, %dbgenent→http://www.oasis-open.org/docbook/xml/configerror.txt | included-by: docbookx.dtd, dbmathml.dtd, dbsvg.dtd, docbookx.dtd, docbookx.dtd (+5 more)
+- `isoamsa.ent` [driver/shell] | includes: %isoamsa→http://www.w3.org/2003/entities/iso8879/isoamsa.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, mathml2.dtd
+- `isoamsb.ent` [driver/shell] | includes: %isoamsb→http://www.w3.org/2003/entities/iso8879/isoamsb.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, mathml2.dtd
+- `isoamsc.ent` [driver/shell] | includes: %isoamsc→http://www.w3.org/2003/entities/iso8879/isoamsc.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, mathml2.dtd
+- `isoamsn.ent` [driver/shell] | includes: %isoamsn→http://www.w3.org/2003/entities/iso8879/isoamsn.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, mathml2.dtd
+- `isoamso.ent` [driver/shell] | includes: %isoamso→http://www.w3.org/2003/entities/iso8879/isoamso.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, mathml2.dtd
+- `isoamsr.ent` [driver/shell] | includes: %isoamsr→http://www.w3.org/2003/entities/iso8879/isoamsr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, mathml2.dtd
+- `isobox.ent` [driver/shell] | includes: %isobox→http://www.w3.org/2003/entities/iso8879/isobox.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isobox.ent, dbcentx.mod, mathml2.dtd
+- `isocyr1.ent` [driver/shell] | includes: %isocyr1→http://www.w3.org/2003/entities/iso8879/isocyr1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr1.ent, dbcentx.mod, mathml2.dtd
+- `isocyr2.ent` [driver/shell] | includes: %isocyr2→http://www.w3.org/2003/entities/iso8879/isocyr2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr2.ent, dbcentx.mod, mathml2.dtd
+- `isodia.ent` [driver/shell] | includes: %isodia→http://www.w3.org/2003/entities/iso8879/isodia.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isodia.ent, dbcentx.mod, mathml2.dtd
+- `isogrk1.ent` [driver/shell] | includes: %isogrk1→http://www.w3.org/2003/entities/iso8879/isogrk1.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk1.ent, dbcentx.mod
+- `isogrk2.ent` [driver/shell] | includes: %isogrk2→http://www.w3.org/2003/entities/iso8879/isogrk2.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk2.ent, dbcentx.mod
+- `isogrk3.ent` [driver/shell] | includes: %isogrk3→http://www.w3.org/2003/entities/iso8879/isogrk3.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, mathml2.dtd
+- `isogrk4.ent` [driver/shell] | includes: %isogrk4→http://www.w3.org/2003/entities/iso8879/isogrk4.ent | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk4.ent, dbcentx.mod
+- `isolat1.ent` [driver/shell] | includes: %isolat1→http://www.w3.org/2003/entities/iso8879/isolat1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat1.ent, dbcentx.mod, mathml2.dtd
+- `isolat2.ent` [driver/shell] | includes: %isolat2→http://www.w3.org/2003/entities/iso8879/isolat2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat2.ent, dbcentx.mod, mathml2.dtd
+- `isonum.ent` [driver/shell] | includes: %isonum→http://www.w3.org/2003/entities/iso8879/isonum.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isonum.ent, dbcentx.mod, mathml2.dtd
+- `isopub.ent` [driver/shell] | includes: %isopub→http://www.w3.org/2003/entities/iso8879/isopub.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isopub.ent, dbcentx.mod, mathml2.dtd
+- `isotech.ent` [driver/shell] | includes: %isotech→http://www.w3.org/2003/entities/iso8879/isotech.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, mathml2.dtd
+- `htmltblx.mod` [driver+module | elements: colgroup, col, tr, th, td] | includes: %htmltbl→htmltblx.mod | included-by: dbpoolx.mod, htmltblx.mod, dbpoolx.mod, htmltblx.mod, dbpoolx.mod
+- `soextblx.dtd` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: dbpoolx.mod, dbpoolx.mod, dbpoolx.mod, dbpoolx.mod
+- `docbook.dtd` [module | elements: title, titleabbrev, subtitle, info, subjectset, subject, subjectterm, keywordset]
+
+## dtds (12 files)
+
+- `dc.dtd` [module | elements: title, creator, subject, description, publisher, contributor, date, type]
+- `itunes.dtd` [module | elements: author, block, category, duration, explicit, keywords, owner, subtitle]
+- `mscml.dtd` [module | elements: MediaServerControl, request, configure_conference, configure_leg, play, playcollect, playrecord, managecontent]
+- `pocsettings.dtd` [module | elements: poc-settings, entity, isb-settings, incoming-session-barring, am-settings, answer-mode, ipab-settings, incoming-personal-alert-barring]
+- `presence.dtd` [module | elements: presence, tuple, status, basic, contact, note, timestamp]
+- `reginfo.dtd` [module | elements: reginfo, registration, contact, uri, display-name, unknown-param]
+- `rlmi.dtd` [module | elements: list, resource, name, instance]
+- `rss.dtd` [module | elements: rss, channel, title, description, link, image, url, item]
+- `smil.dtd` [module | elements: smil, head, layout, region, root-layout, meta, body, par]
+- `watcherinfo.dtd` [module | elements: watcherinfo, watcher-list, watcher]
+- `xcap-caps.dtd` [module | elements: xcap-caps, auid, extension, namespace]
+- `xcap-error.dtd` [module | elements: xcap-error, schema-validation-error, not-xml-frag, ancestor, no-parent, cannot-insert, alt-value, exists]
+
+## mathml (71 files)
+
+- `lat1.ent` [module]
+- `special.ent` [module]
+- `symbol.ent` [module]
+- `isoamsa.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, isoamsa.ent
+- `isoamsb.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, isoamsb.ent
+- `isoamsc.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, isoamsc.ent
+- `isoamsn.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, isoamsn.ent
+- `isoamso.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, isoamso.ent
+- `isoamsr.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, isoamsr.ent
+- `isobox.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isobox.ent, dbcentx.mod, isobox.ent
+- `isocyr1.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr1.ent, dbcentx.mod, isocyr1.ent
+- `isocyr2.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr2.ent, dbcentx.mod, isocyr2.ent
+- `isodia.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isodia.ent, dbcentx.mod, isodia.ent
+- `isogrk1.ent` [module] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk1.ent, dbcentx.mod, isogrk1.ent
+- `isogrk2.ent` [module] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk2.ent, dbcentx.mod, isogrk2.ent
+- `isogrk3.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, isogrk3.ent
+- `isogrk4.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk4.ent, dbcentx.mod, isogrk4.ent
+- `isolat1.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat1.ent, dbcentx.mod, isolat1.ent
+- `isolat2.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat2.ent, dbcentx.mod, isolat2.ent
+- `isonum.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isonum.ent, dbcentx.mod, isonum.ent
+- `isopub.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isopub.ent, dbcentx.mod, isopub.ent
+- `isotech.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, isotech.ent
+- `isoamsa.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, isoamsa.ent
+- `isoamsb.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, isoamsb.ent
+- `isoamsc.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, isoamsc.ent
+- `isoamsn.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, isoamsn.ent
+- `isoamso.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, isoamso.ent
+- `isoamsr.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, isoamsr.ent
+- `isogrk3.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, isogrk3.ent
+- `isogrk4.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, dbcentx.mod, isogrk4.ent, dbcentx.mod, isogrk4.ent
+- `isomfrk.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomfrk.ent, isomfrk.ent
+- `isomopf.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomopf.ent, isomopf.ent
+- `isomscr.ent` [entity-lib | entities: plane1D] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomscr.ent, isomscr.ent
+- `isotech.ent` [module] | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, isotech.ent
+- `mmlalias.ent` [module] | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlalias.ent
+- `mmlextra.ent` [entity-lib | entities: plane1D] | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlextra.ent
+- `mathml2-qname-1.mod` [entity-lib | entities: NS.prefixed, MATHML.prefixed, XLINK.prefix, XLINK.xmlns, XLINK.xmlns.attrib, Schema.prefix, Schema.xmlns, Schema.xmlns.attrib] | included-by: JATS-modules1.ent, mathml2.dtd, xhtml-math11-f.dtd, xhtml-math-svg-flat.dtd
+- `mathml2.dtd` [driver+module | elements: %mspace.qname, %mprescripts.qname, %none.qname, %malignmark.qname, %maligngroup.qname, %mglyph.qname, %sep.qname, %integers.qname] | includes: %mathml-qname.mod→mathml2-qname-1.mod, %ent-isoamsa→iso9573-13/isoamsa.ent, %ent-isoamsb→iso9573-13/isoamsb.ent, %ent-isoamsc→iso9573-13/isoamsc.ent, %ent-isoamsn→iso9573-13/isoamsn.ent, %ent-isoamso→iso9573-13/isoamso.ent | included-by: JATS-modules1.ent, dbmathml.dtd, office_mathml2.dtd, mathmlDomain2.mod (+16 more)
+- `office_mathml2.dtd` [driver/shell] | includes: %mathml.mod→mathml2.dtd
+- `xhtml-math-svg.dtd` [entity-lib | entities: XHTML.module, MATHML.module, SVG.module, XHTML.version, XHTML.Basic.module, SVG.Basic.module, SVG.Tiny.module, XHTML.xmlns] | included-by: xhtml-math11-f.dtd
+- `xhtml-math11-f.dtd` [driver+module | elements: %br.qname, %span.qname, %abbr.qname, %acronym.qname, %cite.qname, %code.qname, %dfn.qname, %em.qname] | includes: %driver→xhtml-math-svg.dtd, %xhtml-inlstyle.mod→http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-inlstyle-1.mod, %xhtml-model.mod→xhtml11-model-1.mod, %xhtml-framework.mod→http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-framework-1.mod, %xhtml-arch.mod→xhtml-arch-1.mod, %xhtml-notations.mod→xhtml-notations-1.mod (+60 more)
+- `htmlmathml-f.ent` [driver/shell] | includes: %htmlmathml-f→http://www.w3.org/2003/entities/2007/htmlmathml-f.ent | included-by: mathml3.dtd, htmlmathml-f.ent, mathml3.dtd
+- `isoamsa.ent` [driver/shell] | includes: %isoamsa→http://www.w3.org/2003/entities/2007/isoamsa.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, isoamsa.ent
+- `isoamsb.ent` [driver/shell] | includes: %isoamsb→http://www.w3.org/2003/entities/2007/isoamsb.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, isoamsb.ent
+- `isoamsc.ent` [driver/shell] | includes: %isoamsc→http://www.w3.org/2003/entities/2007/isoamsc.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, isoamsc.ent
+- `isoamsn.ent` [driver/shell] | includes: %isoamsn→http://www.w3.org/2003/entities/2007/isoamsn.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, isoamsn.ent
+- `isoamso.ent` [driver/shell] | includes: %isoamso→http://www.w3.org/2003/entities/2007/isoamso.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, isoamso.ent
+- `isoamsr.ent` [driver/shell] | includes: %isoamsr→http://www.w3.org/2003/entities/2007/isoamsr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, isoamsr.ent
+- `isobox.ent` [driver/shell] | includes: %isobox→http://www.w3.org/2003/entities/2007/isobox.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isobox.ent, dbcentx.mod, isobox.ent
+- `isocyr1.ent` [driver/shell] | includes: %isocyr1→http://www.w3.org/2003/entities/2007/isocyr1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr1.ent, dbcentx.mod, isocyr1.ent
+- `isocyr2.ent` [driver/shell] | includes: %isocyr2→http://www.w3.org/2003/entities/2007/isocyr2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr2.ent, dbcentx.mod, isocyr2.ent
+- `isodia.ent` [driver/shell] | includes: %isodia→http://www.w3.org/2003/entities/2007/isodia.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isodia.ent, dbcentx.mod, isodia.ent
+- `isogrk3.ent` [driver/shell] | includes: %isogrk3→http://www.w3.org/2003/entities/2007/isogrk3.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, isogrk3.ent
+- `isolat1.ent` [driver/shell] | includes: %isolat1→http://www.w3.org/2003/entities/2007/isolat1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat1.ent, dbcentx.mod, isolat1.ent
+- `isolat2.ent` [driver/shell] | includes: %isolat2→http://www.w3.org/2003/entities/2007/isolat2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat2.ent, dbcentx.mod, isolat2.ent
+- `isomfrk.ent` [driver/shell] | includes: %isomfrk→http://www.w3.org/2003/entities/2007/isomfrk.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomfrk.ent, xhtml-math-svg-flat.dtd
+- `isomopf.ent` [driver/shell] | includes: %isomopf→http://www.w3.org/2003/entities/2007/isomopf.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomopf.ent, xhtml-math-svg-flat.dtd
+- `isomscr.ent` [driver/shell] | includes: %isomscr→http://www.w3.org/2003/entities/2007/isomscr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomscr.ent, xhtml-math-svg-flat.dtd
+- `isonum.ent` [driver/shell] | includes: %isonum→http://www.w3.org/2003/entities/2007/isonum.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isonum.ent, dbcentx.mod, isonum.ent
+- `isopub.ent` [driver/shell] | includes: %isopub→http://www.w3.org/2003/entities/2007/isopub.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isopub.ent, dbcentx.mod, isopub.ent
+- `isotech.ent` [driver/shell] | includes: %isotech→http://www.w3.org/2003/entities/2007/isotech.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, isotech.ent
+- `mathml2-3.dtd` [driver/shell] | includes: %mml3→mathml3.dtd
+- `mathml2.dtd` [driver/shell] | includes: %mml3→mathml3.dtd | included-by: JATS-modules1.ent, dbmathml.dtd, office_mathml2.dtd, mathmlDomain2.mod
+- `mathml3-qname.mod` [entity-lib | entities: NS.prefixed, MATHML.prefixed, XLINK.prefix, XLINK.xmlns, XLINK.xmlns.attrib, Schema.prefix, Schema.xmlns, Schema.xmlns.attrib] | included-by: mathml3.dtd, mathml3.dtd, mathml3.dtd
+- `mathml3.dtd` [driver+module | elements: %cn.qname, %ci.qname, %csymbol.qname, %apply.qname, %bind.qname, %share.qname, %cerror.qname, %cbytes.qname] | includes: %mathml-qname.mod→mathml3-qname.mod, %htmlmathmlent→htmlmathml-f.ent | included-by: JATS-mathml3-modules1.ent, mathml2-3.dtd, mathml2.dtd, mathml3-ditadriver.dtd, mathml2-3.dtd, mathml2.dtd
+- `mmlalias.ent` [driver/shell] | includes: %mmlalias→http://www.w3.org/2003/entities/2007/mmlalias.ent | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlalias.ent
+- `mmlextra.ent` [driver/shell] | includes: %mmlextra→http://www.w3.org/2003/entities/2007/mmlextra.ent | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlextra.ent
+- `predefined.ent` [driver/shell] | includes: %predefined→http://www.w3.org/2003/entities/2007/predefined.ent | included-by: predefined.ent
+- `ditabase.dtd` [driver+module | elements: dita] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %glossgroup-dec→glossgroup.ent, %reference-dec→reference.ent, %task-dec→task.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+24 more)
+- `mathmlDomain2.ent` [entity-lib | entities: math-d-foreign, math-d-unknown, math-d-fig, math-d-dl, math-d-dlentry, math-d-dt, math-d-dd] | included-by: ditabase.dtd
+- `mathmlDomain2.mod` [driver+module | elements: mathph, math, equation, eqsymbols, eqsymbol, symname, symdesc, symdescph] | includes: %mathml→http://www.w3.org/Math/DTD/mathml2/mathml2.dtd | included-by: ditabase.dtd
+
+## office (27 files)
+
+- `Manifest.dtd` [module | elements: manifest:manifest, manifest:file-entry, manifest:encryption-data, manifest:algorithm, manifest:key-derivation]
+- `accelerator.dtd` [module | elements: accel:acceleratorlist, accel:item]
+- `chart.mod` [module | elements: chart:chart, chart:title, chart:subtitle, chart:legend, chart:plot-area, chart:wall, chart:floor, chart:stock-gain-marker] | included-by: office.dtd
+- `datastyl.mod` [module | elements: number:number-style, number:number, number:scientific-number, number:fraction, number:embedded-text, number:currency-style, number:currency-symbol, number:percentage-style] | included-by: office.dtd
+- `defs.mod` [entity-lib | entities: change-marks, text-decls, sectionText, headerText] | included-by: office.dtd
+- `dialog.dtd` [module | elements: dlg:window, dlg:styles, dlg:style, script:event, script:listener-event, dlg:event, dlg:bulletinboard, dlg:button]
+- `drawing.mod` [module | elements: draw:rect, draw:line, draw:polyline, draw:polygon, draw:path, draw:circle, draw:ellipse, draw:connector] | included-by: office.dtd
+- `dtypes.mod` [entity-lib | entities: string, cString, boolean, integer, nonNegativeInteger, positiveInteger, cPositiveInteger, positiveNumberOrDefault] | included-by: office.dtd
+- `event.dtd` [module | elements: event:event, event:events]
+- `form.mod` [module | elements: form:control, form:form, office:forms, form:text, form:textarea, form:password, form:file, form:formatted-text] | included-by: office.dtd
+- `groupuinames.dtd` [module | elements: groupuinames:template-group-list, groupuinames:template-group]
+- `image.dtd` [module | elements: image:entry, image:externalentry, image:externalimages, image:images, image:imagescontainer]
+- `libraries.dtd` [module | elements: library:libraries, library:library]
+- `library.dtd` [module | elements: library:library, library:element]
+- `menubar.dtd` [module | elements: menu:menubar, menu:menu, menu:menupopup, menu:menuseparator, menu:menuitem]
+- `meta.mod` [module | elements: meta:generator, dc:title, dc:description, dc:subject, meta:keywords, meta:keyword, meta:initial-creator, dc:creator] | included-by: office.dtd
+- `module.dtd` [module | elements: script:module]
+- `nmspace.mod` [module] | included-by: office.dtd
+- `office.dtd` [driver/shell] | includes: %dtypes-mod→dtypes.mod, %nmspace-mod→nmspace.mod, %defs-mod→defs.mod, %office-mod→office.mod, %style-mod→style.mod, %meta-mod→meta.mod (+8 more)
+- `office.mod` [module | elements: office:document, office:document-styles, office:document-content, office:document-meta, office:document-settings, office:meta, office:script, office:script-data] | included-by: office.dtd
+- `script.mod` [module | elements: script:libraries, script:library-embedded, script:library-linked, script:module, script:source-code, script:event] | included-by: office.dtd
+- `settings.mod` [module | elements: office:settings, config:config-item-set, config:config-item, config:config-item-map-named, config:config-item-map-indexed, config:config-item-map-entry] | included-by: office.dtd
+- `statusbar.dtd` [module | elements: statusbar:statusbar, statusbar:statusbaritem]
+- `style.mod` [module | elements: style:font-decl, style:style, style:default-style, style:map, style:properties, style:tab-stops, style:tab-stop, style:drop-cap] | included-by: office.dtd
+- `table.mod` [module | elements: table:calculation-settings, table:null-date, table:iteration, table:tracked-changes, table:dependences, table:dependence, table:deletions, table:cell-content-deletion] | included-by: office.dtd
+- `text.mod` [module | elements: text:p, text:h, text:span, text:a, text:s, text:tab-stop, text:line-break, text:ordered-list] | included-by: office.dtd
+- `toolbar.dtd` [module | elements: toolbar:toolbar, toolbar:toolbaritem, toolbar:toolbarspace, toolbar:toolbarbreak, toolbar:toolbarseparator, toolbar:toolbarlayouts, toolbar:toolbarlayout]
+
+## org.dita.specialization.dita11 (36 files)
+
+- `bookmap.dtd` [driver/shell] | includes: %mapgroup-d-dec→mapGroup.ent, %indexing-d-dec→indexingDomain.ent, %xnaldomain-d-dec→xnalDomain.ent, %map-type→map.mod, %bookmap-type→bookmap.mod, %mapgroup-d-def→mapGroup.mod (+2 more)
+- `bookmap.mod` [module | elements: bookmap, bookmeta, frontmatter, backmatter, publisherinformation, person, organization, bookchangehistory] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `commonElements.ent` [entity-lib | entities: alt, boolean, cite, data, data-about, dd, ddhd, desc] | included-by: commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent
+- `commonElements.mod` [driver+module | elements: data-about, data, unknown, foreign, title, shortdesc, desc, p] | includes: %commonDefns→commonElements.ent, %tableXML→tblDecl.mod | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `concept.dtd` [driver/shell] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+8 more)
+- `concept.mod` [module | elements: concept, conbody] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, learningContent.dtd, concept.dtd
+- `ditabase.dtd` [driver+module | elements: dita] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+11 more)
+- `glossary.dtd` [driver/shell] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+9 more)
+- `glossary.mod` [module | elements: glossentry, glossterm, glossdef] | included-by: ditabase.dtd, glossary.dtd
+- `highlightDomain.ent` [entity-lib | entities: hi-d-ph] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `highlightDomain.mod` [module | elements: b, u, i, tt, sup, sub] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `indexingDomain.ent` [entity-lib | entities: indexing-d-index-base] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `indexingDomain.mod` [module | elements: index-see, index-see-also, index-sort-as] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `map.dtd` [driver/shell] | includes: %mapgroup-d-dec→mapGroup.ent, %indexing-d-dec→indexingDomain.ent, %map-type→map.mod, %mapgroup-d-def→mapGroup.mod, %indexing-d-def→indexingDomain.mod
+- `map.mod` [driver+module | elements: map, navref, topicref, anchor, reltable, relheader, relcolspec, relrow] | includes: %commonElements→commonElements.mod, %metaXML→metaDecl.mod | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.ent` [entity-lib | entities: mapgroup-d-topicref] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.mod` [module | elements: topichead, topicgroup] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `metaDecl.mod` [module | elements: author, source, publisher, copyright, copyryear, copyrholder, critdates, created] | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `programmingDomain.ent` [entity-lib | entities: pr-d-ph, pr-d-pre, pr-d-keyword, pr-d-fig, pr-d-dl] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `programmingDomain.mod` [module | elements: codeph, codeblock, option, var, parmname, synph, oper, delim] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `reference.dtd` [driver/shell] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+8 more)
+- `reference.mod` [module | elements: reference, refbody, refsyn, properties, prophead, proptypehd, propvaluehd, propdeschd] | included-by: ditabase.dtd, ditabase.dtd, reference.dtd, learningContent.dtd, ditabase.dtd, reference.dtd
+- `softwareDomain.ent` [entity-lib | entities: sw-d-pre, sw-d-ph, sw-d-keyword] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `softwareDomain.mod` [module | elements: msgph, msgblock, msgnum, cmdname, varname, filepath, userinput, systemoutput] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `task.dtd` [driver/shell] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+8 more)
+- `task.mod` [module | elements: task, taskbody, prereq, context, steps, steps-unordered, step, cmd] | included-by: ditabase.dtd, ditabase.dtd, task.dtd, learningContent.dtd, machineryTask.dtd, ditabase.dtd
+- `tblDecl.mod` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: commonElements.mod, topic.mod, commonElements.mod, commonElements.mod
+- `topic.dtd` [driver/shell] | includes: %ui-d-dec→uiDomain.ent, %hi-d-dec→highlightDomain.ent, %pr-d-dec→programmingDomain.ent, %sw-d-dec→softwareDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent (+7 more)
+- `topic.mod` [driver+module | elements: topic, titlealts, navtitle, searchtitle, abstract, shortdesc, body, no-topic-nesting] | includes: %topicDefns→topicDefn.ent, %commonElements→commonElements.mod, %metaXML→metaDecl.mod, %tableXML→tblDecl.mod | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `topicDefn.ent` [driver/shell] | includes: %commonDefns→commonElements.ent | included-by: topic.mod, topic.mod, topic.mod
+- `uiDomain.ent` [entity-lib | entities: ui-d-keyword, ui-d-ph, ui-d-pre] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `uiDomain.mod` [module | elements: uicontrol, wintitle, menucascade, shortcut, screen] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `utilitiesDomain.ent` [entity-lib | entities: ut-d-fig] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `utilitiesDomain.mod` [module | elements: imagemap, area, shape, coords] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `xnalDomain.ent` [entity-lib | entities: xnal-d-author] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `xnalDomain.mod` [module | elements: authorinformation, namedetails, organizationnamedetails, organizationname, personname, honorific, firstname, middlename] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+
+## org.oasis-open.dita.v1_2 (97 files)
+
+- `basemap.dtd` [driver/shell] | includes: %mapgroup-d-dec→mapGroup.ent, %indexing-d-dec→indexingDomain.ent, %delay-d-dec→delayResolutionDomain.ent, %hi-d-dec→highlightDomain.ent, %ut-d-dec→utilitiesDomain.ent, %hazard-d-dec→hazardstatementDomain.ent (+7 more)
+- `basetopic.dtd` [driver/shell] | includes: %hi-d-dec→highlightDomain.ent, %ut-d-dec→utilitiesDomain.ent, %indexing-d-dec→indexingDomain.ent, %hazard-d-dec→hazardstatementDomain.ent, %topic-type→topic.mod, %hi-d-def→highlightDomain.mod (+3 more)
+- `commonElements.ent` [entity-lib | entities: alt, boolean, cite, data, data-about, dd, ddhd, desc] | included-by: commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent
+- `commonElements.mod` [driver+module | elements: data-about, data, unknown, foreign, title, navtitle, shortdesc, desc] | includes: %commonDefns→commonElements.ent, %tableXML→tblDecl.mod | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `delayResolutionDomain.ent` [entity-lib | entities: delay-d-keywords] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd, classifyMap.dtd, map.dtd
+- `delayResolutionDomain.mod` [module | elements: exportanchors, anchorid, anchorkey] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd, classifyMap.dtd, map.dtd
+- `hazardstatementDomain.ent` [entity-lib | entities: hazard-d-note] | included-by: ditabase.dtd, basemap.dtd, basetopic.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `hazardstatementDomain.mod` [module | elements: hazardstatement, hazardsymbol, messagepanel, typeofhazard, consequence, howtoavoid] | included-by: ditabase.dtd, basemap.dtd, basetopic.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `highlightDomain.ent` [entity-lib | entities: hi-d-ph] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `highlightDomain.mod` [module | elements: b, u, i, tt, sup, sub] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `indexingDomain.ent` [entity-lib | entities: indexing-d-index-base] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `indexingDomain.mod` [module | elements: index-see, index-see-also, index-sort-as] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `map.mod` [driver+module | elements: map, navref, topicref, anchor, reltable, relheader, relcolspec, relrow] | includes: %commonElements→commonElements.mod, %metaXML→metaDecl.mod | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.ent` [entity-lib | entities: mapgroup-d-topicref] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.mod` [module | elements: topichead, topicgroup, anchorref, mapref, topicset, topicsetref, keydef] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `metaDecl.mod` [module | elements: author, source, publisher, copyright, copyryear, copyrholder, critdates, created] | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `tblDecl.mod` [module | elements: %tbl.table.name, tgroup, colspec, thead, tbody, row, entry] | included-by: commonElements.mod, topic.mod, commonElements.mod, commonElements.mod
+- `topic.mod` [driver+module | elements: topic, titlealts, searchtitle, abstract, body, bodydiv, no-topic-nesting, section] | includes: %topicDefns→topicDefn.ent, %commonElements→commonElements.mod, %metaXML→metaDecl.mod | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `topicDefn.ent` [driver/shell] | includes: %commonDefns→commonElements.ent | included-by: topic.mod, topic.mod, topic.mod
+- `utilitiesDomain.ent` [entity-lib | entities: ut-d-fig] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `utilitiesDomain.mod` [module | elements: imagemap, area, shape, coords] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `bookmap.dtd` [driver/shell] | includes: %bookmap-dec→bookmap.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %xnaldomain-d-dec→../../xnal/dtd/xnalDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+19 more)
+- `bookmap.ent` [module] | included-by: bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `bookmap.mod` [module | elements: bookmap, bookmeta, frontmatter, backmatter, publisherinformation, person, organization, bookchangehistory] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `ditaval.dtd` [module | elements: val, style-conflict, prop, startflag, endflag, alt-text, revprop]
+- `learningAssessment.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningAssesment-dec→learningAssessment.ent, %learningInteractionBase-d-dec→learningInteractionBaseDomain.ent, %learning-d-dec→learningDomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+11 more)
+- `learningAssessment.ent` [module] | included-by: learningAssessment.dtd, learningContent.dtd, learningAssessment.dtd, learningContent.dtd
+- `learningAssessment.mod` [module | elements: learningAssessment, learningAssessmentbody] | included-by: learningAssessment.dtd, learningContent.dtd, learningAssessment.dtd, learningContent.dtd
+- `learningBase.ent` [module] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningBase.mod` [module | elements: learningBase, learningBasebody, lcIntro, lcObjectives, lcObjectivesStem, lcObjectivesGroup, lcObjective, lcAudience] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningBookmap.dtd` [driver/shell] | includes: %bookmap-dec→../../bookmap/dtd/bookmap.ent, %learningmap-d-dec→learningMapdomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent (+15 more)
+- `learningContent.dtd` [driver/shell] | includes: %concept-dec→../../technicalContent/dtd/concept.ent, %reference-dec→../../technicalContent/dtd/reference.ent, %task-dec→../../technicalContent/dtd/task.ent, %learningBase-dec→learningBase.ent, %learningContent-dec→learningContent.ent, %learningAssesment-dec→learningAssessment.ent (+21 more)
+- `learningContent.ent` [module] | included-by: learningContent.dtd, learningContent.dtd
+- `learningContent.mod` [module | elements: learningContent, learningContentbody] | included-by: learningContent.dtd, learningContent.dtd
+- `learningDomain.ent` [entity-lib | entities: learning-d-note, learning-d-fig, learning-d-lcInteractionBase] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningDomain.mod` [module | elements: lcInstructornote, lcTrueFalse, lcSingleSelect, lcMultipleSelect, lcSequencing, lcMatching, lcHotspot, lcOpenQuestion] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningInteractionBaseDomain.ent` [entity-lib | entities: learningInteractionBase-d-fig] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningInteractionBaseDomain.mod` [module | elements: lcInteractionBase, lcQuestionBase] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningMap.dtd` [driver/shell] | includes: %learningmap-d-dec→learningMapdomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+11 more)
+- `learningMapDomain.ent` [entity-lib | entities: learningmap-d-topicref] | included-by: learningBookmap.dtd, learningMap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `learningMapDomain.mod` [module | elements: learningGroup, learningObject, learningPlanRef, learningOverviewRef, learningSummaryRef, learningContentRef, learningContentComponentRef, learningPreAssessmentRef] | included-by: learningBookmap.dtd, learningMap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `learningMetadataDomain.ent` [entity-lib | entities: learningmeta-d-metadata] | included-by: learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningMap.dtd, learningOverview.dtd, learningPlan.dtd
+- `learningMetadataDomain.mod` [module | elements: lcLom, lomStructure, lomCoverage, lomAggregationLevel, lomTechRequirement, lomInstallationRemarks, lomOtherPlatformRequirements, lomInteractivityType] | included-by: learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningMap.dtd, learningOverview.dtd, learningPlan.dtd
+- `learningOverview.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningOverview-dec→learningOverview.ent, %learningInteractionBase-d-dec→learningInteractionBaseDomain.ent, %learning-d-dec→learningDomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+11 more)
+- `learningOverview.ent` [module] | included-by: learningOverview.dtd, learningOverview.dtd
+- `learningOverview.mod` [module | elements: learningOverview, learningOverviewbody] | included-by: learningOverview.dtd, learningOverview.dtd
+- `learningPlan.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningPlan-dec→learningPlan.ent, %learningInteractionBase-d-dec→learningInteractionBaseDomain.ent, %learning-d-dec→learningDomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+11 more)
+- `learningPlan.ent` [module] | included-by: learningPlan.dtd, learningPlan.dtd
+- `learningPlan.mod` [module | elements: learningPlan, learningPlanbody, lcProject, lcClient, lcPlanTitle, lcCIN, lcModDate, lcDelivDate] | included-by: learningPlan.dtd, learningPlan.dtd
+- `learningSummary.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningSummary-dec→learningSummary.ent, %learningInteractionBase-d-dec→learningInteractionBaseDomain.ent, %learning-d-dec→learningDomain.ent, %learningmeta-d-dec→learningMetadataDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+11 more)
+- `learningSummary.ent` [module] | included-by: learningContent.dtd, learningSummary.dtd, learningContent.dtd, learningSummary.dtd
+- `learningSummary.mod` [module | elements: learningSummary, learningSummarybody] | included-by: learningContent.dtd, learningSummary.dtd, learningContent.dtd, learningSummary.dtd
+- `machineryTask.dtd` [driver/shell] | includes: %task-dec→../../technicalContent/dtd/task.ent, %taskreq-d-dec→../../technicalContent/dtd/taskreqDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+10 more)
+- `machineryTaskbodyConstraint.mod` [entity-lib | entities: prelreqs, context, section, steps, steps-unordered, steps-informal, result, example] | included-by: machineryTask.dtd, machineryTask.dtd
+- `classifyDomain.ent` [entity-lib | entities: classify-d-topicref, classify-d-reltable] | included-by: classifyMap.dtd, classifyMap.dtd
+- `classifyDomain.mod` [module | elements: topicsubject, topicapply, subjectref, topicSubjectTable, topicSubjectHeader, topicSubjectRow, topicCell, subjectCell] | included-by: classifyMap.dtd, classifyMap.dtd
+- `classifyMap.dtd` [driver/shell] | includes: %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %classify-d-dec→classifyDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent (+9 more)
+- `subjectScheme.dtd` [driver/shell] | includes: %subjectScheme-dec→subjectScheme.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %map-type→../../base/dtd/map.mod (+5 more)
+- `subjectScheme.ent` [module] | included-by: subjectScheme.dtd, subjectScheme.dtd
+- `subjectScheme.mod` [module | elements: subjectScheme, schemeref, hasNarrower, hasKind, hasPart, hasInstance, hasRelated, subjectdef] | included-by: subjectScheme.dtd, subjectScheme.dtd
+- `abbreviateDomain.ent` [entity-lib | entities: abbrev-d-term] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `abbreviateDomain.mod` [module | elements: abbreviated-form] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `concept.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %abbrev-d-dec→abbreviateDomain.ent (+13 more)
+- `concept.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, concept.dtd, ditabase.dtd, glossentry.dtd, glossgroup.dtd
+- `concept.mod` [module | elements: concept, conbody, conbodydiv] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, learningContent.dtd, concept.dtd
+- `ditabase.dtd` [driver+module | elements: dita] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %glossgroup-dec→glossgroup.ent, %reference-dec→reference.ent, %task-dec→task.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+22 more)
+- `generalTask.dtd` [driver/shell] | includes: %task-dec→task.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %abbrev-d-dec→abbreviateDomain.ent (+13 more)
+- `glossary.dtd` [driver/shell] | includes: %glossentryDtd→glossentry.dtd
+- `glossary.ent` [driver/shell] | includes: %glossentryEnt→glossentry.ent
+- `glossary.mod` [driver/shell] | includes: %glossentryMod→glossentry.mod | included-by: ditabase.dtd, glossary.dtd
+- `glossentry.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent | included-by: glossary.dtd, glossary.dtd (+15 more)
+- `glossentry.ent` [module] | included-by: ditabase.dtd, ditabase.dtd, glossary.ent, glossentry.dtd, glossgroup.dtd, ditabase.dtd
+- `glossentry.mod` [module | elements: glossentry, glossterm, glossdef, glossBody, glossAbbreviation, glossAcronym, glossShortForm, glossSynonym] | included-by: ditabase.dtd, ditabase.dtd, glossary.mod, glossentry.dtd, glossgroup.dtd, ditabase.dtd
+- `glossgroup.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %glossgroup-dec→glossgroup.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+17 more)
+- `glossgroup.ent` [module] | included-by: ditabase.dtd, ditabase.dtd, glossgroup.dtd, ditabase.dtd, glossgroup.dtd
+- `glossgroup.mod` [module | elements: glossgroup] | included-by: ditabase.dtd, ditabase.dtd, glossgroup.dtd, ditabase.dtd, glossgroup.dtd
+- `glossrefDomain.ent` [entity-lib | entities: glossref-d-topicref] | included-by: map.dtd, classifyMap.dtd, map.dtd
+- `glossrefDomain.mod` [module | elements: glossref] | included-by: map.dtd, classifyMap.dtd, map.dtd
+- `map.dtd` [driver/shell] | includes: %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %glossref-d-dec→glossrefDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent (+17 more)
+- `programmingDomain.ent` [entity-lib | entities: pr-d-ph, pr-d-pre, pr-d-keyword, pr-d-fig, pr-d-dl] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `programmingDomain.mod` [module | elements: codeph, codeblock, coderef, option, var, parmname, synph, oper] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `reference.dtd` [driver/shell] | includes: %reference-dec→reference.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %abbrev-d-dec→abbreviateDomain.ent (+13 more)
+- `reference.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, ditabase.dtd, reference.dtd, learningContent.dtd, ditabase.dtd
+- `reference.mod` [module | elements: reference, refbody, refbodydiv, refsyn, properties, prophead, proptypehd, propvaluehd] | included-by: ditabase.dtd, ditabase.dtd, reference.dtd, learningContent.dtd, ditabase.dtd, reference.dtd
+- `softwareDomain.ent` [entity-lib | entities: sw-d-pre, sw-d-ph, sw-d-keyword] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `softwareDomain.mod` [module | elements: msgph, msgblock, msgnum, cmdname, varname, filepath, userinput, systemoutput] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `strictTaskbodyConstraint.mod` [entity-lib | entities: prereq, context, steps, steps-unordered, result, example, postreq, taskbody.content] | included-by: ditabase.dtd, ditabase.dtd, task.dtd, ditabase.dtd, task.dtd, troubleshooting.dtd
+- `task.dtd` [driver/shell] | includes: %task-dec→task.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %abbrev-d-dec→abbreviateDomain.ent (+14 more)
+- `task.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, machineryTask.dtd, ditabase.dtd, generalTask.dtd, task.dtd
+- `task.mod` [module | elements: task, taskbody, prereq, context, steps-informal, steps, steps-unordered, stepsection] | included-by: ditabase.dtd, ditabase.dtd, task.dtd, learningContent.dtd, machineryTask.dtd, ditabase.dtd
+- `taskreqDomain.ent` [entity-lib | entities: taskreq-d-prereq, taskreq-d-postreq] | included-by: machineryTask.dtd, machineryTask.dtd
+- `taskreqDomain.mod` [module | elements: prelreqs, closereqs, reqconds, noconds, reqcond, reqcontp, reqpers, personnel] | included-by: machineryTask.dtd, machineryTask.dtd
+- `topic.dtd` [driver/shell] | includes: %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %abbrev-d-dec→abbreviateDomain.ent, %pr-d-dec→programmingDomain.ent (+11 more)
+- `uiDomain.ent` [entity-lib | entities: ui-d-keyword, ui-d-ph, ui-d-pre] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `uiDomain.mod` [module | elements: uicontrol, wintitle, menucascade, shortcut, screen] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `xnalDomain.ent` [entity-lib | entities: xnal-d-author] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `xnalDomain.mod` [module | elements: authorinformation, namedetails, organizationnamedetails, organizationname, personname, honorific, firstname, middlename] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+
+## org.oasis-open.dita.v1_3 (159 files)
+
+- `basemap.dtd` [driver/shell] | includes: %mapgroup-d-dec→mapGroup.ent, %delay-d-dec→delayResolutionDomain.ent, %ditavalref-d-dec→ditavalrefDomain.ent, %indexing-d-dec→indexingDomain.ent, %hazard-d-dec→hazardstatementDomain.ent, %hi-d-dec→highlightDomain.ent (+10 more)
+- `basetopic.dtd` [driver/shell] | includes: %hazard-d-dec→hazardstatementDomain.ent, %hi-d-dec→highlightDomain.ent, %indexing-d-dec→indexingDomain.ent, %ut-d-dec→utilitiesDomain.ent, %deliveryTargetAtt-d-dec→deliveryTargetAttDomain.ent, %topic-type→topic.mod (+4 more)
+- `commonElements.ent` [entity-lib | entities: data-about, data, unknown, foreign, title, navtitle, desc, p] | included-by: commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent, commonElements.mod, topicDefn.ent
+- `commonElements.mod` [driver+module | elements: data-about, data, unknown, foreign, title, navtitle, desc, p] | includes: %commonDefns→commonElements.ent, %tblDecl-def→tblDecl.mod | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `delayResolutionDomain.ent` [entity-lib | entities: delay-d-keywords] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd, classifyMap.dtd, map.dtd
+- `delayResolutionDomain.mod` [module | elements: exportanchors, anchorid, anchorkey] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd, classifyMap.dtd, map.dtd
+- `deliveryTargetAttDomain.ent` [entity-lib | entities: deliveryTargetAtt-d-attribute] | included-by: basemap.dtd, basetopic.dtd, bookmap.dtd, learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd
+- `ditavalrefDomain.ent` [entity-lib | entities: ditavalref-d-topicref] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `ditavalrefDomain.mod` [module | elements: ditavalref, ditavalmeta, dvrResourcePrefix, dvrResourceSuffix, dvrKeyscopePrefix, dvrKeyscopeSuffix] | included-by: basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `hazardstatementDomain.ent` [entity-lib | entities: hazard-d-note] | included-by: ditabase.dtd, basemap.dtd, basetopic.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `hazardstatementDomain.mod` [module | elements: hazardstatement, hazardsymbol, messagepanel, typeofhazard, consequence, howtoavoid] | included-by: ditabase.dtd, basemap.dtd, basetopic.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `highlightDomain.ent` [entity-lib | entities: hi-d-ph] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `highlightDomain.mod` [module | elements: b, u, i, line-through, overline, tt, sup, sub] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `indexingDomain.ent` [entity-lib | entities: indexing-d-index-base] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `indexingDomain.mod` [module | elements: index-see, index-see-also, index-sort-as] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, glossary.dtd, map.dtd
+- `map.mod` [driver+module | elements: map, navref, topicref, anchor, reltable, relheader, relcolspec, relrow] | includes: %commonElements-def→commonElements.mod, %metaDecl-def→metaDecl.mod | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.ent` [entity-lib | entities: mapgroup-d-topicref] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `mapGroup.mod` [module | elements: topichead, topicgroup, anchorref, mapref, topicset, topicsetref, keydef] | included-by: bookmap.dtd, map.dtd, basemap.dtd, bookmap.dtd, learningBookmap.dtd, learningMap.dtd
+- `metaDecl.mod` [module | elements: author, source, publisher, copyright, copyryear, copyrholder, critdates, created] | included-by: map.mod, topic.mod, map.mod, topic.mod, map.mod, topic.mod
+- `tblDecl.mod` [module | elements: table, tgroup, colspec, thead, tbody, row, entry] | included-by: commonElements.mod, topic.mod, commonElements.mod, commonElements.mod
+- `topic.mod` [driver+module | elements: topic, titlealts, searchtitle, shortdesc, abstract, body, bodydiv, no-topic-nesting] | includes: %topicDefns→topicDefn.ent, %commonElements→commonElements.mod, %metaXML→metaDecl.mod | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `topicDefn.ent` [driver/shell] | includes: %commonDefns→commonElements.ent | included-by: topic.mod, topic.mod, topic.mod
+- `utilitiesDomain.ent` [entity-lib | entities: ut-d-fig, ut-d-data] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `utilitiesDomain.mod` [module | elements: imagemap, area, shape, coords, sort-as] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `bookmap.dtd` [driver/shell] | includes: %bookmap-dec→bookmap.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %abbrev-d-dec→../../technicalContent/dtd/abbreviateDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent (+28 more)
+- `bookmap.ent` [module] | included-by: bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `bookmap.mod` [module | elements: bookmap, bookmeta, frontmatter, backmatter, publisherinformation, person, organization, bookchangehistory] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `ditaval.dtd` [module | elements: val, style-conflict, prop, startflag, endflag, alt-text, revprop]
+- `learning2Domain.ent` [entity-lib | entities: learning2-d-div, learning2-d-lcInteractionBase2, learning2-d-note] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd
+- `learning2Domain.mod` [module | elements: lcInstructornote2, lcTrueFalse2, lcSingleSelect2, lcMultipleSelect2, lcSequencing2, lcMatching2, lcHotspot2, lcOpenQuestion2] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd
+- `learningAggregationsTopicrefConstraint.mod` [entity-lib | entities: keydef, mapref, topicgroup, mapgroup-d-topicref] | included-by: learningGroupMap.dtd, learningObjectMap.dtd
+- `learningAssessment.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningAssessment-dec→learningAssessment.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %relmgmt-d-dec→../../technicalContent/dtd/releaseManagementDomain.ent (+18 more)
+- `learningAssessment.ent` [module] | included-by: learningAssessment.dtd, learningContent.dtd, learningAssessment.dtd, learningContent.dtd
+- `learningAssessment.mod` [module | elements: learningAssessment, learningAssessmentbody] | included-by: learningAssessment.dtd, learningContent.dtd, learningAssessment.dtd, learningContent.dtd
+- `learningBase.ent` [module] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningBase.mod` [module | elements: learningBase, learningBasebody, lcIntro, lcObjectives, lcObjectivesStem, lcObjectivesGroup, lcObjective, lcAudience] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningBookmap.dtd` [driver/shell] | includes: %bookmap-dec→../../bookmap/dtd/bookmap.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+20 more)
+- `learningContent.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %task-dec→../../technicalContent/dtd/task.ent, %concept-dec→../../technicalContent/dtd/concept.ent, %reference-dec→../../technicalContent/dtd/reference.ent, %learningSummary-dec→learningSummary.ent, %learningAssessment-dec→learningAssessment.ent (+28 more)
+- `learningContent.ent` [module] | included-by: learningContent.dtd, learningContent.dtd
+- `learningContent.mod` [module | elements: learningContent, learningContentbody] | included-by: learningContent.dtd, learningContent.dtd
+- `learningDomain.ent` [entity-lib | entities: learning-d-note, learning-d-fig, learning-d-lcInteractionBase] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningDomain.mod` [module | elements: lcInstructornote, lcTrueFalse, lcSingleSelect, lcMultipleSelect, lcSequencing, lcMatching, lcHotspot, lcOpenQuestion] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningGroupMap.dtd` [driver/shell] | includes: %learningGroupMap-dec→learningGroupMap.ent, %learningAggregationsTopicref-def→learningAggregationsTopicrefConstraint.mod, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent (+19 more)
+- `learningGroupMap.ent` [module] | included-by: learningGroupMap.dtd
+- `learningGroupMap.mod` [module | elements: learningGroupMap] | included-by: learningGroupMap.dtd
+- `learningInteractionBase2Domain.ent` [entity-lib | entities: learningInteractionBase2-d-div] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd
+- `learningInteractionBase2Domain.mod` [module | elements: lcInteractionBase2, lcInteractionLabel2, lcQuestionBase2] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd
+- `learningInteractionBaseDomain.ent` [entity-lib | entities: learningInteractionBase-d-fig] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningInteractionBaseDomain.mod` [module | elements: lcInteractionBase, lcQuestionBase] | included-by: learningAssessment.dtd, learningContent.dtd, learningOverview.dtd, learningPlan.dtd, learningSummary.dtd, learningAssessment.dtd
+- `learningMap.dtd` [driver/shell] | includes: %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+16 more)
+- `learningMapDomain.ent` [entity-lib | entities: learningmap-d-topicref] | included-by: learningBookmap.dtd, learningMap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `learningMapDomain.mod` [module | elements: learningGroup, learningObject, learningPlanRef, learningOverviewRef, learningSummaryRef, learningContentRef, learningContentComponentRef, learningPreAssessmentRef] | included-by: learningBookmap.dtd, learningMap.dtd, learningBookmap.dtd, learningGroupMap.dtd, learningMap.dtd, learningObjectMap.dtd
+- `learningMetadataDomain.ent` [entity-lib | entities: learningmeta-d-metadata] | included-by: learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningMap.dtd, learningOverview.dtd, learningPlan.dtd
+- `learningMetadataDomain.mod` [module | elements: lcLom, lomStructure, lomCoverage, lomAggregationLevel, lomTechRequirement, lomInstallationRemarks, lomOtherPlatformRequirements, lomInteractivityType] | included-by: learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningMap.dtd, learningOverview.dtd, learningPlan.dtd
+- `learningNoLearning1Constraint.mod` [entity-lib | entities: lcInteractionBase2, lcInteractionBase, lcInteraction.content]
+- `learningNoLearning2Constraint.mod` [entity-lib | entities: lcInteractionBase, lcInteractionBase2, lcInteraction.content]
+- `learningObjectMap.dtd` [driver/shell] | includes: %learningObjectMap-dec→learningObjectMap.ent, %learningAggregationsTopicref-def→learningAggregationsTopicrefConstraint.mod, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent (+19 more)
+- `learningObjectMap.ent` [module] | included-by: learningObjectMap.dtd
+- `learningObjectMap.mod` [module | elements: learningObjectMap] | included-by: learningObjectMap.dtd
+- `learningOverview.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningOverview-dec→learningOverview.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %relmgmt-d-dec→../../technicalContent/dtd/releaseManagementDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent (+18 more)
+- `learningOverview.ent` [module] | included-by: learningOverview.dtd, learningOverview.dtd
+- `learningOverview.mod` [module | elements: learningOverview, learningOverviewbody] | included-by: learningOverview.dtd, learningOverview.dtd
+- `learningPlan.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningPlan-dec→learningPlan.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %relmgmt-d-dec→../../technicalContent/dtd/releaseManagementDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent (+18 more)
+- `learningPlan.ent` [module] | included-by: learningPlan.dtd, learningPlan.dtd
+- `learningPlan.mod` [module | elements: learningPlan, learningPlanbody, lcProject, lcClient, lcPlanTitle, lcCIN, lcModDate, lcDelivDate] | included-by: learningPlan.dtd, learningPlan.dtd
+- `learningSummary.dtd` [driver/shell] | includes: %learningBase-dec→learningBase.ent, %learningSummary-dec→learningSummary.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %relmgmt-d-dec→../../technicalContent/dtd/releaseManagementDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent (+18 more)
+- `learningSummary.ent` [module] | included-by: learningContent.dtd, learningSummary.dtd, learningContent.dtd, learningSummary.dtd
+- `learningSummary.mod` [module | elements: learningSummary, learningSummarybody] | included-by: learningContent.dtd, learningSummary.dtd, learningContent.dtd, learningSummary.dtd
+- `machineryTask.dtd` [driver/shell] | includes: %task-dec→../../technicalContent/dtd/task.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %svg-d-dec→../../technicalContent/dtd/svgDomain.ent, %taskreq-d-dec→../../technicalContent/dtd/taskreqDomain.ent (+13 more)
+- `machineryTaskbodyConstraint.mod` [entity-lib | entities: prelreqs, context, section, steps, steps-unordered, steps-informal, result, example] | included-by: machineryTask.dtd, machineryTask.dtd
+- `classifyDomain.ent` [entity-lib | entities: classify-d-topicref, classify-d-reltable] | included-by: classifyMap.dtd, classifyMap.dtd
+- `classifyDomain.mod` [module | elements: topicsubject, topicapply, subjectref, topicSubjectTable, topicSubjectHeader, topicSubjectRow, topicCell, subjectCell] | included-by: classifyMap.dtd, classifyMap.dtd
+- `classifyMap.dtd` [driver/shell] | includes: %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %classify-d-dec→classifyDomain.ent, %abbrev-d-dec→../../technicalContent/dtd/abbreviateDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %glossref-d-dec→../../technicalContent/dtd/glossrefDomain.ent (+28 more)
+- `subjectScheme.dtd` [driver/shell] | includes: %subjectScheme-dec→subjectScheme.ent, %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %ut-d-dec→../../base/dtd/utilitiesDomain.ent, %deliveryTargetAtt-d-dec→../../base/dtd/deliveryTargetAttDomain.ent (+6 more)
+- `subjectScheme.ent` [module] | included-by: subjectScheme.dtd, subjectScheme.dtd
+- `subjectScheme.mod` [module | elements: subjectScheme, schemeref, hasNarrower, hasKind, hasPart, hasInstance, hasRelated, subjectdef] | included-by: subjectScheme.dtd, subjectScheme.dtd
+- `abbreviateDomain.ent` [entity-lib | entities: abbrev-d-term] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `abbreviateDomain.mod` [module | elements: abbreviated-form] | included-by: ditabase.dtd, bookmap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `concept.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+26 more)
+- `concept.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, concept.dtd, ditabase.dtd, glossentry.dtd, glossgroup.dtd
+- `concept.mod` [module | elements: concept, conbody, conbodydiv] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, learningContent.dtd, concept.dtd
+- `ditabase.dtd` [driver+module | elements: dita] | includes: %task-dec→task.ent, %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %glossgroup-dec→glossgroup.ent, %reference-dec→reference.ent, %troubleshooting-dec→troubleshooting.ent (+37 more)
+- `equationDomain.ent` [entity-lib | entities: equation-d-ph, equation-d-div, equation-d-fig] | included-by: concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd, reference.dtd
+- `equationDomain.mod` [module | elements: equation-inline, equation-block, equation-number, equation-figure] | included-by: concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd, reference.dtd
+- `generalTask.dtd` [driver/shell] | includes: %task-dec→task.ent, %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+26 more)
+- `glossary.dtd` [driver/shell] | includes: %glossentryDtd→glossentry.dtd
+- `glossary.ent` [driver/shell] | includes: %glossentryEnt→glossentry.ent
+- `glossary.mod` [driver/shell] | includes: %glossentryMod→glossentry.mod | included-by: ditabase.dtd, glossary.dtd
+- `glossentry.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent | included-by: glossary.dtd, glossary.dtd (+28 more)
+- `glossentry.ent` [module] | included-by: ditabase.dtd, ditabase.dtd, glossary.ent, glossentry.dtd, glossgroup.dtd, ditabase.dtd
+- `glossentry.mod` [module | elements: glossentry, glossterm, glossdef, glossBody, glossAbbreviation, glossAcronym, glossShortForm, glossSynonym] | included-by: ditabase.dtd, ditabase.dtd, glossary.mod, glossentry.dtd, glossgroup.dtd, ditabase.dtd
+- `glossgroup.dtd` [driver/shell] | includes: %concept-dec→concept.ent, %glossentry-dec→glossentry.ent, %glossgroup-dec→glossgroup.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+30 more)
+- `glossgroup.ent` [module] | included-by: ditabase.dtd, ditabase.dtd, glossgroup.dtd, ditabase.dtd, glossgroup.dtd
+- `glossgroup.mod` [module | elements: glossgroup] | included-by: ditabase.dtd, ditabase.dtd, glossgroup.dtd, ditabase.dtd, glossgroup.dtd
+- `glossrefDomain.ent` [entity-lib | entities: glossref-d-topicref] | included-by: map.dtd, classifyMap.dtd, map.dtd
+- `glossrefDomain.mod` [module | elements: glossref] | included-by: map.dtd, classifyMap.dtd, map.dtd
+- `map.dtd` [driver/shell] | includes: %mapgroup-d-dec→../../base/dtd/mapGroup.ent, %abbrev-d-dec→abbreviateDomain.ent, %delay-d-dec→../../base/dtd/delayResolutionDomain.ent, %ditavalref-d-dec→../../base/dtd/ditavalrefDomain.ent, %glossref-d-dec→glossrefDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent (+26 more)
+- `markupDomain.ent` [entity-lib | entities: markup-d-keyword] | included-by: bookmap.dtd, classifyMap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `markupDomain.mod` [module | elements: markupname] | included-by: bookmap.dtd, classifyMap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `mathml3-ditadriver.dtd` [driver/shell] | includes: %mathml3→mathml3/mathml3.dtd | included-by: mathmlDomain.mod
+- `htmlmathml-f.ent` [driver/shell] | includes: %htmlmathml-f→http://www.w3.org/2003/entities/2007/htmlmathml-f.ent | included-by: htmlmathml-f.ent, mathml3.dtd, mathml3.dtd
+- `isoamsa.ent` [driver/shell] | includes: %isoamsa→http://www.w3.org/2003/entities/2007/isoamsa.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsa.ent, dbcentx.mod, isoamsa.ent
+- `isoamsb.ent` [driver/shell] | includes: %isoamsb→http://www.w3.org/2003/entities/2007/isoamsb.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsb.ent, dbcentx.mod, isoamsb.ent
+- `isoamsc.ent` [driver/shell] | includes: %isoamsc→http://www.w3.org/2003/entities/2007/isoamsc.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsc.ent, dbcentx.mod, isoamsc.ent
+- `isoamsn.ent` [driver/shell] | includes: %isoamsn→http://www.w3.org/2003/entities/2007/isoamsn.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsn.ent, dbcentx.mod, isoamsn.ent
+- `isoamso.ent` [driver/shell] | includes: %isoamso→http://www.w3.org/2003/entities/2007/isoamso.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamso.ent, dbcentx.mod, isoamso.ent
+- `isoamsr.ent` [driver/shell] | includes: %isoamsr→http://www.w3.org/2003/entities/2007/isoamsr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isoamsr.ent, dbcentx.mod, isoamsr.ent
+- `isobox.ent` [driver/shell] | includes: %isobox→http://www.w3.org/2003/entities/2007/isobox.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isobox.ent, dbcentx.mod, isobox.ent
+- `isocyr1.ent` [driver/shell] | includes: %isocyr1→http://www.w3.org/2003/entities/2007/isocyr1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr1.ent, dbcentx.mod, isocyr1.ent
+- `isocyr2.ent` [driver/shell] | includes: %isocyr2→http://www.w3.org/2003/entities/2007/isocyr2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isocyr2.ent, dbcentx.mod, isocyr2.ent
+- `isodia.ent` [driver/shell] | includes: %isodia→http://www.w3.org/2003/entities/2007/isodia.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isodia.ent, dbcentx.mod, isodia.ent
+- `isogrk3.ent` [driver/shell] | includes: %isogrk3→http://www.w3.org/2003/entities/2007/isogrk3.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isogrk3.ent, dbcentx.mod, isogrk3.ent
+- `isolat1.ent` [driver/shell] | includes: %isolat1→http://www.w3.org/2003/entities/2007/isolat1.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat1.ent, dbcentx.mod, isolat1.ent
+- `isolat2.ent` [driver/shell] | includes: %isolat2→http://www.w3.org/2003/entities/2007/isolat2.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isolat2.ent, dbcentx.mod, isolat2.ent
+- `isomfrk.ent` [driver/shell] | includes: %isomfrk→http://www.w3.org/2003/entities/2007/isomfrk.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomfrk.ent, xhtml-math-svg-flat.dtd
+- `isomopf.ent` [driver/shell] | includes: %isomopf→http://www.w3.org/2003/entities/2007/isomopf.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomopf.ent, xhtml-math-svg-flat.dtd
+- `isomscr.ent` [driver/shell] | includes: %isomscr→http://www.w3.org/2003/entities/2007/isomscr.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, isomscr.ent, xhtml-math-svg-flat.dtd
+- `isonum.ent` [driver/shell] | includes: %isonum→http://www.w3.org/2003/entities/2007/isonum.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isonum.ent, dbcentx.mod, isonum.ent
+- `isopub.ent` [driver/shell] | includes: %isopub→http://www.w3.org/2003/entities/2007/isopub.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isopub.ent, dbcentx.mod, isopub.ent
+- `isotech.ent` [driver/shell] | includes: %isotech→http://www.w3.org/2003/entities/2007/isotech.ent | included-by: JATS-xmlspecchars1.ent, mathml3.dtd, dbcentx.mod, isotech.ent, dbcentx.mod, isotech.ent
+- `mathml2-3.dtd` [driver/shell] | includes: %mml3→mathml3.dtd
+- `mathml2.dtd` [driver/shell] | includes: %mml3→mathml3.dtd | included-by: JATS-modules1.ent, dbmathml.dtd, office_mathml2.dtd, mathmlDomain2.mod
+- `mathml3-qname.mod` [entity-lib | entities: NS.prefixed, MATHML.prefixed, XLINK.prefix, XLINK.xmlns, XLINK.xmlns.attrib, Schema.prefix, Schema.xmlns, Schema.xmlns.attrib] | included-by: mathml3.dtd, mathml3.dtd, mathml3.dtd
+- `mathml3.dtd` [driver+module | elements: %cn.qname, %ci.qname, %csymbol.qname, %apply.qname, %bind.qname, %share.qname, %cerror.qname, %cbytes.qname] | includes: %mathml-qname.mod→mathml3-qname.mod, %htmlmathmlent→htmlmathml-f.ent | included-by: JATS-mathml3-modules1.ent, mathml2-3.dtd, mathml2.dtd, mathml3-ditadriver.dtd, mathml2-3.dtd, mathml2.dtd
+- `mmlalias.ent` [driver/shell] | includes: %mmlalias→http://www.w3.org/2003/entities/2007/mmlalias.ent | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlalias.ent
+- `mmlextra.ent` [driver/shell] | includes: %mmlextra→http://www.w3.org/2003/entities/2007/mmlextra.ent | included-by: JATS-mathml3-modules1.ent, JATS-modules1.ent, mathml3.dtd, mathml2.dtd, xhtml-math11-f.dtd, mmlextra.ent
+- `predefined.ent` [driver/shell] | includes: %predefined→http://www.w3.org/2003/entities/2007/predefined.ent | included-by: predefined.ent
+- `mathmlDomain.ent` [entity-lib | entities: mathml-d-foreign] | included-by: concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd, reference.dtd
+- `mathmlDomain.mod` [driver+module | elements: mathmlref, mathml] | includes: %mathml3-ditadriver→mathml/mathml3-ditadriver.dtd | included-by: concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd, reference.dtd
+- `programmingDomain.ent` [entity-lib | entities: pr-d-ph, pr-d-pre, pr-d-keyword, pr-d-fig, pr-d-dl] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `programmingDomain.mod` [module | elements: codeph, codeblock, coderef, option, var, parmname, synph, oper] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `reference.dtd` [driver/shell] | includes: %reference-dec→reference.ent, %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+26 more)
+- `reference.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, ditabase.dtd, reference.dtd, learningContent.dtd, ditabase.dtd
+- `reference.mod` [module | elements: reference, refbody, refbodydiv, refsyn, properties, prophead, proptypehd, propvaluehd] | included-by: ditabase.dtd, ditabase.dtd, reference.dtd, learningContent.dtd, ditabase.dtd, reference.dtd
+- `releaseManagementDomain.ent` [entity-lib | entities: relmgmt-d-metadata] | included-by: bookmap.dtd, learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningGroupMap.dtd, learningMap.dtd
+- `releaseManagementDomain.mod` [module | elements: change-historylist, change-item, change-person, change-organization, change-revisionid, change-request-reference, change-request-system, change-request-id] | included-by: bookmap.dtd, learningAssessment.dtd, learningBookmap.dtd, learningContent.dtd, learningGroupMap.dtd, learningMap.dtd
+- `softwareDomain.ent` [entity-lib | entities: sw-d-pre, sw-d-ph, sw-d-keyword] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `softwareDomain.mod` [module | elements: msgph, msgblock, msgnum, cmdname, varname, filepath, userinput, systemoutput] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `strictTaskbodyConstraint.mod` [entity-lib | entities: prereq, context, steps, steps-unordered, result, tasktroubleshooting, example, postreq] | included-by: ditabase.dtd, ditabase.dtd, task.dtd, ditabase.dtd, task.dtd, troubleshooting.dtd
+- `svg11-ditadriver.dtd` [driver/shell] | includes: %svg11→svg11/svg11-flat-20110816.dtd | included-by: svgDomain.mod
+- `svg11-flat-20110816.dtd` [driver+module | elements: %SVG.svg.qname, %SVG.g.qname, %SVG.defs.qname, %SVG.desc.qname, %SVG.title.qname, %SVG.metadata.qname, %SVG.symbol.qname, %SVG.use.qname] | includes: %svg-model.mod→svg11-model.mod, %svg-attribs.mod→svg11-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-datatypes.mod→svg-datatypes.mod, %svg-qname.mod→svg-qname.mod, %svg-core-attrib.mod→svg-core-attrib.mod | included-by: svg11-ditadriver.dtd (+30 more)
+- `svgDomain.ent` [entity-lib | entities: svg-d-foreign] | included-by: machineryTask.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd
+- `svgDomain.mod` [driver+module | elements: svg-container, svgref] | includes: %svg11-ditadriver→svg/svg11-ditadriver.dtd | included-by: machineryTask.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd, glossgroup.dtd
+- `task.dtd` [driver/shell] | includes: %task-dec→task.ent, %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent (+27 more)
+- `task.ent` [module] | included-by: ditabase.dtd, learningContent.dtd, machineryTask.dtd, ditabase.dtd, generalTask.dtd, task.dtd
+- `task.mod` [module | elements: task, taskbody, prereq, context, steps-informal, steps, steps-unordered, stepsection] | included-by: ditabase.dtd, ditabase.dtd, task.dtd, learningContent.dtd, machineryTask.dtd, ditabase.dtd
+- `taskreqDomain.ent` [entity-lib | entities: taskreq-d-prereq, taskreq-d-postreq] | included-by: machineryTask.dtd, machineryTask.dtd
+- `taskreqDomain.mod` [module | elements: prelreqs, closereqs, reqconds, noconds, reqcond, reqcontp, reqpers, personnel] | included-by: machineryTask.dtd, machineryTask.dtd
+- `topic.dtd` [driver/shell] | includes: %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent, %indexing-d-dec→../../base/dtd/indexingDomain.ent, %markup-d-dec→markupDomain.ent (+24 more)
+- `troubleshooting.dtd` [driver/shell] | includes: %task-dec→task.ent, %troubleshooting-dec→troubleshooting.ent, %abbrev-d-dec→abbreviateDomain.ent, %equation-d-dec→equationDomain.ent, %hazard-d-dec→../../base/dtd/hazardstatementDomain.ent, %hi-d-dec→../../base/dtd/highlightDomain.ent (+29 more)
+- `troubleshooting.ent` [module] | included-by: ditabase.dtd, troubleshooting.dtd
+- `troubleshooting.mod` [module | elements: troubleshooting, troublebody, cause, condition, remedy, responsibleParty, troubleSolution] | included-by: ditabase.dtd, troubleshooting.dtd
+- `uiDomain.ent` [entity-lib | entities: ui-d-keyword, ui-d-ph, ui-d-pre] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `uiDomain.mod` [module | elements: uicontrol, wintitle, menucascade, shortcut, screen] | included-by: ditabase.dtd, concept.dtd, ditabase.dtd, glossary.dtd, reference.dtd, task.dtd
+- `xmlDomain.ent` [entity-lib | entities: xml-d-keyword] | included-by: bookmap.dtd, classifyMap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `xmlDomain.mod` [module | elements: numcharref, parameterentity, textentity, xmlatt, xmlelement, xmlnsname, xmlpi] | included-by: bookmap.dtd, classifyMap.dtd, concept.dtd, ditabase.dtd, generalTask.dtd, glossentry.dtd
+- `xnalDomain.ent` [entity-lib | entities: xnal-d-author] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `xnalDomain.mod` [module | elements: authorinformation, namedetails, organizationnamedetails, organizationname, personname, honorific, firstname, middlename] | included-by: bookmap.dtd, bookmap.dtd, learningBookmap.dtd, bookmap.dtd, learningBookmap.dtd
+- `relaxng.dtd` [module | elements: element, attribute, group, interleave, choice, optional, zeroOrMore, oneOrMore]
+
+## org.oasis-open.xdita.v0_2_2 (5 files)
+
+- `lw-highlightDomain.mod` [module | elements: b, i, u, sup, sub] | included-by: lw-map.dtd, lw-topic.dtd
+- `lw-map.dtd` [driver/shell] | includes: %map-type→lw-map.mod, %hi-d-def→lw-highlightDomain.mod
+- `lw-map.mod` [module | elements: map, topicmeta, navtitle, linktext, data, ph, image, alt] | included-by: lw-map.dtd
+- `lw-topic.dtd` [driver/shell] | includes: %topic-type→lw-topic.mod, %hi-d-def→lw-highlightDomain.mod
+- `lw-topic.mod` [module | elements: topic, title, shortdesc, prolog, body, section, p, ul] | included-by: lw-topic.dtd
+
+## svg (54 files)
+
+- `svg-animation.mod` [module | elements: %SVG.animate.qname, %SVG.set.qname, %SVG.animateMotion.qname, %SVG.animateColor.qname, %SVG.animateTransform.qname, %SVG.mpath.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-animevents-attrib.mod` [entity-lib | entities: SVG.onbegin.attrib, SVG.onend.attrib, SVG.onrepeat.attrib, SVG.onload.attrib, SVG.AnimationEvents.extra.attrib, SVG.AnimationEvents.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-basic-clip.mod` [module | elements: %SVG.clipPath.qname] | included-by: svg11-basic.dtd
+- `svg-basic-color.mod` [module | elements: %SVG.color-profile.qname]
+- `svg-basic-filter.mod` [module | elements: %SVG.filter.qname, %SVG.feBlend.qname, %SVG.feColorMatrix.qname, %SVG.feComponentTransfer.qname, %SVG.feComposite.qname, %SVG.feFlood.qname, %SVG.feGaussianBlur.qname, %SVG.feImage.qname] | included-by: svg11-basic.dtd
+- `svg-basic-font.mod` [module | elements: %SVG.font.qname, %SVG.font-face.qname, %SVG.glyph.qname, %SVG.missing-glyph.qname, %SVG.hkern.qname, %SVG.font-face-src.qname, %SVG.font-face-name.qname] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg-basic-graphics-attrib.mod` [entity-lib | entities: SVG.display.attrib, SVG.visibility.attrib, SVG.Graphics.extra.attrib, SVG.Graphics.attrib] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg-basic-paint-attrib.mod` [entity-lib | entities: Paint.datatype, StrokeDashArrayValue.datatype, StrokeDashOffsetValue.datatype, StrokeMiterLimitValue.datatype, StrokeWidthValue.datatype, SVG.fill.attrib, SVG.fill-rule.attrib, SVG.stroke.attrib] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg-basic-structure.mod` [module | elements: %SVG.svg.qname, %SVG.g.qname, %SVG.defs.qname, %SVG.desc.qname, %SVG.title.qname, %SVG.metadata.qname, %SVG.use.qname] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg-basic-text.mod` [module | elements: %SVG.text.qname] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg-clip.mod` [module | elements: %SVG.clipPath.qname] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-color.mod` [module | elements: %SVG.color-profile.qname]
+- `svg-conditional.mod` [module | elements: %SVG.switch.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-container-attrib.mod` [entity-lib | entities: EnableBackgroundValue.datatype, SVG.enable-background.attrib, SVG.Container.extra.attrib, SVG.Container.attrib] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-core-attrib.mod` [entity-lib | entities: SVG.id.attrib, SVG.base.attrib, SVG.lang.attrib, SVG.space.attrib, SVG.Core.extra.attrib, SVG.Core.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-cursor.mod` [module | elements: %SVG.cursor.qname] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-datatypes.mod` [entity-lib | entities: Boolean.datatype, ClipFillRule.datatype, ContentType.datatype, Coordinate.datatype, Coordinates.datatype, Color.datatype, Integer.datatype, LanguageCode.datatype] | included-by: svg11-flat-20110816.dtd, svg-framework.mod, svg11-tiny-flat.dtd, xhtml-math-svg-flat.dtd
+- `svg-docevents-attrib.mod` [entity-lib | entities: SVG.onunload.attrib, SVG.onabort.attrib, SVG.onerror.attrib, SVG.onresize.attrib, SVG.onscroll.attrib, SVG.onzoom.attrib, SVG.DocumentEvents.extra.attrib, SVG.DocumentEvents.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-extensibility.mod` [module | elements: %SVG.foreignObject.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-extresources-attrib.mod` [entity-lib | entities: SVG.externalResourcesRequired.attrib, SVG.External.extra.attrib, SVG.External.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-filter.mod` [module | elements: %SVG.filter.qname, %SVG.feBlend.qname, %SVG.feColorMatrix.qname, %SVG.feComponentTransfer.qname, %SVG.feComposite.qname, %SVG.feConvolveMatrix.qname, %SVG.feDiffuseLighting.qname, %SVG.feDisplacementMap.qname] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-font.mod` [module | elements: %SVG.font.qname, %SVG.font-face.qname, %SVG.glyph.qname, %SVG.missing-glyph.qname, %SVG.hkern.qname, %SVG.vkern.qname, %SVG.font-face-src.qname, %SVG.font-face-uri.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-framework.mod` [driver/shell] | includes: %svg-datatypes.mod→svg-datatypes.mod, %svg-qname.mod→svg-qname.mod | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-gradient.mod` [module | elements: %SVG.linearGradient.qname, %SVG.radialGradient.qname, %SVG.stop.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-graphevents-attrib.mod` [entity-lib | entities: SVG.onfocusin.attrib, SVG.onfocusout.attrib, SVG.onactivate.attrib, SVG.onclick.attrib, SVG.onmousedown.attrib, SVG.onmouseup.attrib, SVG.onmouseover.attrib, SVG.onmousemove.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-graphics-attrib.mod` [entity-lib | entities: SVG.display.attrib, SVG.image-rendering.attrib, SVG.pointer-events.attrib, SVG.shape-rendering.attrib, SVG.text-rendering.attrib, SVG.visibility.attrib, SVG.Graphics.extra.attrib, SVG.Graphics.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-hyperlink.mod` [module | elements: %SVG.a.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-image.mod` [module | elements: %SVG.image.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-marker.mod` [module | elements: %SVG.marker.qname] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-mask.mod` [module | elements: %SVG.mask.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-opacity-attrib.mod` [entity-lib | entities: SVG.opacity.attrib, SVG.fill-opacity.attrib, SVG.stroke-opacity.attrib, SVG.Opacity.extra.attrib, SVG.Opacity.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-paint-attrib.mod` [entity-lib | entities: Paint.datatype, StrokeDashArrayValue.datatype, StrokeDashOffsetValue.datatype, StrokeMiterLimitValue.datatype, StrokeWidthValue.datatype, SVG.fill.attrib, SVG.fill-rule.attrib, SVG.stroke.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-pattern.mod` [module | elements: %SVG.pattern.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-profile.mod` [module | elements: %SVG.color-profile.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-qname.mod` [entity-lib | entities: NS.prefixed, SVG.prefixed, SVG.xmlns, XLINK.xmlns, SVG.prefix, XLINK.prefix, SVG.pfx, SVG.pfx] | included-by: svg11-flat-20110816.dtd, svg-framework.mod, svg11-tiny-flat.dtd, xhtml-math-svg-flat.dtd
+- `svg-script.mod` [module | elements: %SVG.script.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-shape.mod` [module | elements: %SVG.path.qname, %SVG.rect.qname, %SVG.circle.qname, %SVG.line.qname, %SVG.ellipse.qname, %SVG.polyline.qname, %SVG.polygon.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-structure.mod` [module | elements: %SVG.svg.qname, %SVG.g.qname, %SVG.defs.qname, %SVG.desc.qname, %SVG.title.qname, %SVG.metadata.qname, %SVG.symbol.qname, %SVG.use.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-style.mod` [module | elements: %SVG.style.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-text.mod` [module | elements: %SVG.text.qname, %SVG.tspan.qname, %SVG.tref.qname, %SVG.textPath.qname, %SVG.altGlyph.qname, %SVG.altGlyphDef.qname, %SVG.altGlyphItem.qname, %SVG.glyphRef.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-view.mod` [module | elements: %SVG.view.qname] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-viewport-attrib.mod` [entity-lib | entities: ClipValue.datatype, SVG.clip.attrib, SVG.overflow.attrib, SVG.Viewport.extra.attrib, SVG.Viewport.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg-xlink-attrib.mod` [entity-lib | entities: SVG.XLink.extra.attrib, SVG.XLink.attrib, SVG.XLinkRequired.extra.attrib, SVG.XLinkRequired.attrib, SVG.XLinkEmbed.extra.attrib, SVG.XLinkEmbed.attrib, SVG.XLinkReplace.extra.attrib, SVG.XLinkReplace.attrib] | included-by: svg11-flat-20110816.dtd, svg11-basic.dtd, svg11-tiny-flat.dtd, svg11-tiny.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg10.dtd` [module | elements: svg, g, defs, desc, title, symbol, use, image]
+- `svg11-attribs.mod` [entity-lib | entities: ExtensionList.datatype, FeatureList.datatype, SVG.Conditional.extra.attrib, SVG.Conditional.attrib, ClassList.datatype, StyleSheet.datatype, SVG.Style.extra.attrib, SVG.Style.attrib] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg11-basic-attribs.mod` [entity-lib | entities: ExtensionList.datatype, FeatureList.datatype, SVG.Conditional.extra.attrib, SVG.Conditional.attrib, ClassList.datatype, StyleSheet.datatype, SVG.Style.extra.attrib, SVG.Style.attrib] | included-by: svg11-basic.dtd
+- `svg11-basic-model.mod` [entity-lib | entities: SVG.Marker.class, SVG.Cursor.class, SVG.Description.extra.class, SVG.Description.class, SVG.Use.extra.class, SVG.Use.class, SVG.Structure.extra.class, SVG.Structure.class] | included-by: svg11-basic.dtd
+- `svg11-basic.dtd` [driver/shell] | includes: %svg-model.mod→svg11-basic-model.mod, %svg-attribs.mod→svg11-basic-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-core-attrib.mod→svg-core-attrib.mod, %svg-viewport-attrib.mod→svg-viewport-attrib.mod, %svg-paint-attrib.mod→svg-paint-attrib.mod (+25 more)
+- `svg11-model.mod` [entity-lib | entities: SVG.Description.extra.class, SVG.Description.class, SVG.Use.extra.class, SVG.Use.class, SVG.Structure.extra.class, SVG.Structure.class, SVG.Conditional.extra.class, SVG.Conditional.class] | included-by: svg11-flat-20110816.dtd, svg11.dtd, xhtml-math-svg-flat.dtd
+- `svg11-tiny-attribs.mod` [entity-lib | entities: ExtensionList.datatype, FeatureList.datatype, SVG.Conditional.extra.attrib, SVG.Conditional.attrib, FontFamilyValue.datatype, FontSizeValue.datatype, SVG.TextContent.extra.attrib, SVG.TextContent.attrib] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg11-tiny-flat.dtd` [driver+module | elements: %SVG.svg.qname, %SVG.g.qname, %SVG.defs.qname, %SVG.desc.qname, %SVG.title.qname, %SVG.metadata.qname, %SVG.use.qname, %SVG.switch.qname] | includes: %svg-model.mod→svg11-tiny-model.mod, %svg-attribs.mod→svg11-tiny-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-datatypes.mod→svg-datatypes.mod, %svg-qname.mod→svg-qname.mod, %svg-core-attrib.mod→svg-core-attrib.mod (+13 more)
+- `svg11-tiny-model.mod` [entity-lib | entities: SVG.Style.class, SVG.TextContent.class, SVG.Marker.class, SVG.ColorProfile.class, SVG.Gradient.class, SVG.Pattern.class, SVG.Clip.class, SVG.Mask.class] | included-by: svg11-tiny-flat.dtd, svg11-tiny.dtd
+- `svg11-tiny.dtd` [driver/shell] | includes: %svg-model.mod→svg11-tiny-model.mod, %svg-attribs.mod→svg11-tiny-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-core-attrib.mod→svg-core-attrib.mod, %svg-paint-attrib.mod→svg-basic-paint-attrib.mod, %svg-graphics-attrib.mod→svg-basic-graphics-attrib.mod (+11 more)
+- `svg11.dtd` [driver/shell] | includes: %svg-model.mod→svg11-model.mod, %svg-attribs.mod→svg11-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-core-attrib.mod→svg-core-attrib.mod, %svg-container-attrib.mod→svg-container-attrib.mod, %svg-viewport-attrib.mod→svg-viewport-attrib.mod | included-by: dbsvg.dtd (+28 more)
+
+## tei (60 files)
+
+- `analysis-decl.dtd` [entity-lib | entities: att.linguistic.attribute.lemma, att.linguistic.attribute.lemmaRef, att.linguistic.attribute.pos, att.linguistic.attribute.msd, att.linguistic.attribute.join, att.linguistic.attributes, att.global.analytic.attribute.ana, att.global.analytic.attributes]
+- `analysis.dtd` [module | elements: %n.c, %n.cl, %n.interp, %n.interpGrp, %n.m, %n.pc, %n.phr, %n.s]
+- `certainty-decl.dtd` [module]
+- `certainty.dtd` [module | elements: %n.certainty, %n.precision, %n.respons]
+- `core-decl.dtd` [entity-lib | entities: att.milestoneUnit.attribute.unit, att.milestoneUnit.attributes]
+- `core.dtd` [module | elements: %n.abbr, %n.add, %n.addrLine, %n.address, %n.analytic, %n.author, %n.bibl, %n.biblScope]
+- `corpus-decl.dtd` [module]
+- `corpus.dtd` [module | elements: %n.activity, %n.channel, %n.constitution, %n.derivation, %n.domain, %n.factuality, %n.interaction, %n.locale]
+- `dictionaries-decl.dtd` [entity-lib | entities: x.model.entryLike, model.entryLike, x.model.entryLike_sequence, model.entryLike_sequence, x.model.entryLike_sequenceOptional, model.entryLike_sequenceOptional, x.model.entryLike_sequenceOptionalRepeatable, model.entryLike_sequenceOptionalRepeatable]
+- `dictionaries.dtd` [module | elements: %n.case, %n.colloc, %n.def, %n.dictScrap, %n.entry, %n.entryFree, %n.etym, %n.form]
+- `drama-decl.dtd` [module]
+- `drama.dtd` [module | elements: %n.actor, %n.camera, %n.caption, %n.castGroup, %n.castItem, %n.castList, %n.epilogue, %n.move] | included-by: dtbook-2005-1.dtd, dtbook-2005-2.dtd, dtbook-2005-3.dtd
+- `figures-decl.dtd` [entity-lib | entities: att.tableDecoration.attribute.role, att.tableDecoration.attribute.rows, att.tableDecoration.attribute.cols, att.tableDecoration.attributes]
+- `figures.dtd` [module | elements: %n.cell, %n.figDesc, %n.figure, %n.formula, %n.notatedMusic, %n.row, %n.table]
+- `gaiji-decl.dtd` [module]
+- `gaiji.dtd` [module | elements: %n.char, %n.charDecl, %n.charName, %n.charProp, %n.g, %n.glyph, %n.glyphName, %n.localName]
+- `header-decl.dtd` [entity-lib | entities: att.patternReplacement.attribute.matchPattern, att.patternReplacement.attribute.replacementPattern, att.patternReplacement.attributes]
+- `header.dtd` [module | elements: %n.abstract, %n.appInfo, %n.application, %n.authority, %n.availability, %n.biblFull, %n.cRefPattern, %n.calendar]
+- `iso-fs-decl.dtd` [module]
+- `iso-fs.dtd` [module | elements: %n.bicond, %n.binary, %n.cond, %n.default, %n.f, %n.fDecl, %n.fDescr, %n.fLib]
+- `isofs.dtd` [module | elements: bicond, binary, cond, default, f, fDecl, fDescr, fLib]
+- `linking-decl.dtd` [entity-lib | entities: att.global.linking.attribute.corresp, att.global.linking.attribute.synch, att.global.linking.attribute.sameAs, att.global.linking.attribute.copyOf, att.global.linking.attribute.next, att.global.linking.attribute.prev, att.global.linking.attribute.exclude, att.global.linking.attribute.select]
+- `linking.dtd` [module | elements: %n.ab, %n.alt, %n.altGrp, %n.anchor, %n.join, %n.joinGrp, %n.link, %n.linkGrp]
+- `msdescription-decl.dtd` [entity-lib | entities: x.model.physDescPart, model.physDescPart, x.model.physDescPart_sequence, model.physDescPart_sequence, x.model.physDescPart_sequenceOptional, model.physDescPart_sequenceOptional, x.model.physDescPart_sequenceOptionalRepeatable, model.physDescPart_sequenceOptionalRepeatable]
+- `msdescription.dtd` [module | elements: %n.accMat, %n.acquisition, %n.additional, %n.additions, %n.adminInfo, %n.altIdentifier, %n.binding, %n.bindingDesc]
+- `namesdates-decl.dtd` [entity-lib | entities: att.datable.custom.attribute.when-custom, att.datable.custom.attribute.notBefore-custom, att.datable.custom.attribute.notAfter-custom, att.datable.custom.attribute.from-custom, att.datable.custom.attribute.to-custom, att.datable.custom.attribute.datingPoint, att.datable.custom.attribute.datingMethod, att.datable.custom.attributes]
+- `namesdates.dtd` [module | elements: %n.addName, %n.affiliation, %n.age, %n.birth, %n.bloc, %n.climate, %n.country, %n.death]
+- `nets-decl.dtd` [module]
+- `nets.dtd` [module | elements: %n.arc, %n.eLeaf, %n.eTree, %n.forest, %n.graph, %n.iNode, %n.leaf, %n.listForest]
+- `spoken-decl.dtd` [entity-lib | entities: att.duration.attributes, x.model.global.spoken, model.global.spoken, x.model.global.spoken_sequence, model.global.spoken_sequence, x.model.global.spoken_sequenceOptional, model.global.spoken_sequenceOptional, x.model.global.spoken_sequenceOptionalRepeatable]
+- `spoken.dtd` [module | elements: %n.annotationBlock, %n.broadcast, %n.equipment, %n.incident, %n.kinesic, %n.pause, %n.recording, %n.recordingStmt]
+- `tagdocs-decl.dtd` [entity-lib | entities: att.repeatable.attribute.minOccurs, att.repeatable.attribute.maxOccurs, att.repeatable.attributes, x.model.contentPart, model.contentPart, x.model.contentPart_sequence, model.contentPart_sequence, x.model.contentPart_sequenceOptional]
+- `tagdocs.dtd` [module | elements: %n.altIdent, %n.alternate, %n.anyElement, %n.att, %n.attDef, %n.attList, %n.attRef, %n.classRef]
+- `tei.dtd` [entity-lib | entities: TEI.extensions.ent, NS, n.TEI, n.ab, n.abbr, n.abstract, n.accMat, n.acquisition]
+- `tei_all.dtd` [module | elements: TEI, ab, abbr, abstract, accMat, acquisition, activity, actor]
+- `tei_bare.dtd` [module | elements: TEI, author, back, body, div, fileDesc, front, head]
+- `tei_corpus.dtd` [module | elements: TEI, ab, abbr, abstract, activity, add, addName, addrLine]
+- `tei_customization.dtd` [module | elements: TEI, abbr, abstract, addrLine, address, altIdent, alternate, anyElement]
+- `tei_drama.dtd` [module | elements: TEI, ab, abbr, abstract, actor, add, addrLine, address]
+- `tei_enrich.dtd` [module | elements: TEI, abbr, abstract, accMat, acquisition, add, addName, addSpan]
+- `tei_its.dtd` [module | elements: TEI, abbr, abstract, add, addrLine, address, analytic, appInfo]
+- `tei_jtei.dtd` [module | elements: TEI, abbr, affiliation, appInfo, application, att, author, availability]
+- `tei_lite.dtd` [module | elements: TEI, abbr, add, addrLine, address, anchor, argument, att]
+- `tei_math.dtd` [module | elements: TEI, abbr, abstract, add, addrLine, address, analytic, appInfo]
+- `tei_minimal.dtd` [module | elements: TEI, abbr, abstract, add, addrLine, address, analytic, appInfo]
+- `tei_ms.dtd` [module | elements: TEI, ab, abbr, abstract, accMat, acquisition, add, addName]
+- `tei_odds.dtd` [module | elements: TEI, ab, abbr, abstract, add, addrLine, address, alt]
+- `tei_simplePrint.dtd` [module | elements: TEI, ab, abbr, abstract, actor, add, addrLine, address]
+- `tei_speech.dtd` [module | elements: TEI, ab, abbr, abstract, activity, add, addName, addrLine]
+- `tei_svg.dtd` [module | elements: TEI, ab, abbr, abstract, add, addrLine, address, alt]
+- `tei_tite.dtd` [module | elements: ab, abbr, add, addrLine, address, argument, author, b]
+- `tei_xinclude.dtd` [module | elements: TEI, abbr, abstract, add, addrLine, address, analytic, appInfo]
+- `textcrit-decl.dtd` [entity-lib | entities: x.model.rdgLike, model.rdgLike, x.model.rdgLike_sequence, model.rdgLike_sequence, x.model.rdgLike_sequenceOptional, model.rdgLike_sequenceOptional, x.model.rdgLike_sequenceOptionalRepeatable, model.rdgLike_sequenceOptionalRepeatable]
+- `textcrit.dtd` [module | elements: %n.app, %n.lacunaEnd, %n.lacunaStart, %n.lem, %n.listApp, %n.listWit, %n.rdg, %n.rdgGrp]
+- `textstructure-decl.dtd` [module]
+- `textstructure.dtd` [module | elements: %n.TEI, %n.argument, %n.back, %n.body, %n.byline, %n.closer, %n.dateline, %n.div]
+- `transcr-decl.dtd` [entity-lib | entities: att.global.facs.attribute.facs, att.global.facs.attributes, att.global.change.attribute.change, att.global.change.attributes, att.coordinated.attribute.start, att.coordinated.attribute.ulx, att.coordinated.attribute.uly, att.coordinated.attribute.lrx]
+- `transcr.dtd` [module | elements: %n.addSpan, %n.am, %n.damage, %n.damageSpan, %n.delSpan, %n.ex, %n.facsimile, %n.fw]
+- `verse-decl.dtd` [entity-lib | entities: att.metrical.attribute.met, att.metrical.attribute.real, att.metrical.attribute.rhyme, att.metrical.attributes, att.enjamb.attribute.enjamb, att.enjamb.attributes]
+- `verse.dtd` [module | elements: %n.caesura, %n.metDecl, %n.metSym, %n.rhyme]
+
+## xhtml (13 files)
+
+- `xhtml-lat1.ent` [driver/shell] | includes: %HTMLlat1→http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent | included-by: xhtml-math11-f.dtd, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-lat1.ent, xhtml1-frameset.dtd
+- `xhtml-special.ent` [driver/shell] | includes: %HTMLspecial→http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent | included-by: xhtml-math11-f.dtd, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-special.ent, xhtml1-frameset.dtd
+- `xhtml-symbol.ent` [driver/shell] | includes: %HTMLsymbol→http://www.w3.org/TR/xhtml1/DTD/xhtml-symbol.ent | included-by: xhtml-math11-f.dtd, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-symbol.ent, xhtml1-frameset.dtd
+- `xhtml1-frameset.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `xhtml1-strict.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `xhtml1-transitional.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `xhtml-lat1.ent` [driver/shell] | includes: %HTMLlat1→http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent | included-by: xhtml-math11-f.dtd, xhtml-lat1.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml1-frameset.dtd
+- `xhtml-special.ent` [driver/shell] | includes: %HTMLspecial→http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent | included-by: xhtml-math11-f.dtd, xhtml-special.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml1-frameset.dtd
+- `xhtml-symbol.ent` [driver/shell] | includes: %HTMLsymbol→http://www.w3.org/TR/xhtml1/DTD/xhtml-symbol.ent | included-by: xhtml-math11-f.dtd, xhtml-symbol.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml1-frameset.dtd
+- `xhtml1-frameset.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `xhtml1-strict.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `xhtml1-transitional.dtd` [driver+module | elements: html, head, title, base, meta, link, style, script] | includes: %HTMLlat1→xhtml-lat1.ent, %HTMLsymbol→xhtml-symbol.ent, %HTMLspecial→xhtml-special.ent
+- `blank.ent` [module]
+
+## xhtml11 (7 files)
+
+- `xhtml-lat1.ent` [driver/shell] | includes: %xhtml-lat1→xhtml-lat1.ent | included-by: xhtml-math11-f.dtd, xhtml-lat1.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-lat1.ent
+- `xhtml-math-svg-flat.dtd` [driver+module | elements: %SVG.svg.qname, %SVG.g.qname, %SVG.defs.qname, %SVG.desc.qname, %SVG.title.qname, %SVG.metadata.qname, %SVG.symbol.qname, %SVG.use.qname] | includes: %svg-model.mod→svg11-model.mod, %svg-attribs.mod→svg11-attribs.mod, %svg-framework.mod→svg-framework.mod, %svg-datatypes.mod→svg-datatypes.mod, %svg-qname.mod→svg-qname.mod, %svg-core-attrib.mod→svg-core-attrib.mod (+95 more)
+- `xhtml-special.ent` [driver/shell] | includes: %xhtml-special→xhtml-special.ent | included-by: xhtml-math11-f.dtd, xhtml-special.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-special.ent
+- `xhtml-symbol.ent` [driver/shell] | includes: %xhtml-symbol→xhtml-symbol.ent | included-by: xhtml-math11-f.dtd, xhtml-symbol.ent, xhtml1-frameset.dtd, xhtml1-strict.dtd, xhtml1-transitional.dtd, xhtml-symbol.ent
+- `xhtml11-flat.dtd` [driver+module | elements: %br.qname, %span.qname, %abbr.qname, %acronym.qname, %cite.qname, %code.qname, %dfn.qname, %em.qname] | includes: %xhtml-inlstyle.mod→http://www.w3.org/MarkUp/DTD/xhtml-inlstyle-1.mod, %xhtml-model.mod→http://www.w3.org/MarkUp/DTD/xhtml11-model-1.mod, %xhtml-datatypes.mod→xhtml-datatypes-1.mod, %xhtml-framework.mod→http://www.w3.org/MarkUp/DTD/xhtml-framework-1.mod, %xhtml-arch.mod→xhtml-arch-1.mod, %xhtml-notations.mod→xhtml-notations-1.mod (+38 more)
+- `xhtml11-model-1.mod` [entity-lib | entities: HeadOpts.mix, Edit.class, Script.class, Misc.extra, Misc.class, InlStruct.class, InlPhras.class, InlPres.class] | included-by: xhtml-math11-f.dtd, xhtml-math-svg-flat.dtd, xhtml11-flat.dtd, xhtml11.dtd
+- `xhtml11.dtd` [driver/shell] | includes: %xhtml-inlstyle.mod→http://www.w3.org/MarkUp/DTD/xhtml-inlstyle-1.mod, %xhtml-model.mod→http://www.w3.org/MarkUp/DTD/xhtml11-model-1.mod, %xhtml-datatypes.mod→xhtml-datatypes-1.mod, %xhtml-framework.mod→http://www.w3.org/MarkUp/DTD/xhtml-framework-1.mod, %xhtml-text.mod→http://www.w3.org/MarkUp/DTD/xhtml-text-1.mod, %xhtml-hypertext.mod→http://www.w3.org/MarkUp/DTD/xhtml-hypertext-1.mod (+19 more)
